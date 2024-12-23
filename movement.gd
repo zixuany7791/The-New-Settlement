@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 @export var speed = 400
-
+const SPEED = 200.0
+const JUMP_VELOCITY = 10000
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
