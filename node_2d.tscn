@@ -6,5 +6,8 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_oivte")]
-position = Vector2(51, 23)
+position = Vector2(164, 99)
 script = ExtResource("2_8siem")
+
+[node name="BuildingBody2D" parent="." instance=ExtResource("1_oivte")]
+position = Vector2(-121, -124)
