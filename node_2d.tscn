@@ -6,13 +6,13 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_oivte")]
-position = Vector2(163, 89)
+position = Vector2(108, 57)
 script = ExtResource("2_8siem")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(413, 236)
+position = Vector2(466, 268)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="BuildingBody2D" parent="." instance=ExtResource("1_oivte")]
-position = Vector2(-121, -124)
+position = Vector2(-267, -128)
