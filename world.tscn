@@ -6,10 +6,10 @@
 [ext_resource type="Script" path="res://build.gd" id="4_wvnde"]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(505, 320)
+position = Vector2(331, 281)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_s5q8u")]
-position = Vector2(-394, -262)
+position = Vector2(-220, -226)
 script = ExtResource("2_47pq3")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
@@ -18,6 +18,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="Building Block" parent="." instance=ExtResource("3_gwd6m")]
-position = Vector2(-183, -128)
+position = Vector2(-325, -281)
 scale = Vector2(0.967773, 1)
 script = ExtResource("4_wvnde")
