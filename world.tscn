@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://rcd7vc7mj8e2"]
+
+<<<<<<< HEAD:node_2d.tscn
+[ext_resource type="PackedScene" uid="uid://bhglro57ltxjk" path="res://character_body_2d.tscn" id="1_oivte"]
+[ext_resource type="Script" path="res://build.gd" id="1_uob14"]
+[ext_resource type="PackedScene" uid="uid://tt54kfwnau54" path="res://building_block.tscn" id="3_hmubc"]
+=======
+[ext_resource type="PackedScene" uid="uid://bhglro57ltxjk" path="res://Character/character_body_2d.tscn" id="1_oivte"]
+[ext_resource type="Script" path="res://Character/movement.gd" id="2_8siem"]
+[ext_resource type="PackedScene" uid="uid://tt54kfwnau54" path="res://Buildings/building_block.tscn" id="3_hmubc"]
+>>>>>>> cef69c189917120146ef5111718d6197d8cb7a8b:world.tscn
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_uob14")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_oivte")]
+position = Vector2(108, 57)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(466, 268)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Building Block" parent="." instance=ExtResource("3_hmubc")]
+position = Vector2(183, 215)
+scale = Vector2(0.967773, 1)
