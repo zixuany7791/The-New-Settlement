@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 400
 
-const SPEED = 330.0
+const SPEED = 340.0
 const JUMP_VELOCITY = 10000
 
 func get_input():
