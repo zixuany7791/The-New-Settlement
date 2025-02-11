@@ -10,8 +10,9 @@
 #### MVP (4/21)
 
 - [ ] Menu for at least a building (deadline: 3/02)
-  - [ ] Finalize a building (deadline: 2/26)
+  - [ ] Finalize a building model (deadline: 2/26)
 - [ ] Create the world (deadline: 3/16)
+  - [ ] Finalize a character model (deadline: 3/23)
   - [ ] Have a map for the player to place buildings (deadline: 3/09)
   - [ ] Have boundaries that the player cannot cross (deadline: 3/16)
 
