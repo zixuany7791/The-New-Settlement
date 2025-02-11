@@ -1,21 +1,26 @@
 # Plan
 
-## Tool: 
-## Product: 
+## Tool: Godot
+## Product: The-New-Settlement
 
 ---
 
 ## Timeline
 
-#### MVP
+#### MVP (4/21)
 
-- [ ] Task (deadline: X)
-  - [ ] Subtask (deadline: X)
+- [ ] Menu for at least a building (deadline: 3/02)
+  - [ ] Finalize a building (deadline: 2/26)
+- [ ] Create the world (deadline: 3/16)
+  - [ ] Have a map for the player to place buildings (deadline: 3/09)
+  - [ ] Have boundaries that the player cannot cross (deadline: 3/16)
 
-#### Beyond MVP
+#### Beyond MVP(May???)
 
-- [ ] Task
-  - [ ] Subtask
+- [ ] Make multiple buildings
+- [ ] Center the buildings so that the building is placed where the mouse is clicked
+- [ ] Write a story that opens when the player starts
+- [ ] Having a menu for starting the game when opened
 
 
 <!-- EXAMPLE
