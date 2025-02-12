@@ -19,6 +19,7 @@
 #### Beyond MVP(May???)
 
 - [ ] Make multiple buildings
+- [ ] Create event to modify gameplay
 - [ ] Center the buildings so that the building is placed where the mouse is clicked
 - [ ] Write a story that opens when the player starts
 - [ ] Having a menu for starting the game when opened
