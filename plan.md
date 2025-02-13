@@ -9,7 +9,7 @@
 
 #### MVP (4/21)
 
-- [ ] Menu for at least a building (Zixuan+Benjamin deadline: 3/02)
+- [ ] Menu for buildings (Zixuan+Benjamin deadline: 3/02)
   - [ ] Finalize a building model (William deadline: 2/26)
 - [ ] Create the world (Zixuan+William deadline: 3/16)
   - [ ] Finalize a character model (William deadline: 2/23)
