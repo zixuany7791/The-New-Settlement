@@ -9,12 +9,12 @@
 
 #### MVP (4/21)
 
-- [ ] Menu for at least a building (deadline: 3/02)
-  - [ ] Finalize a building model (deadline: 2/26)
-- [ ] Create the world (deadline: 3/16)
-  - [ ] Finalize a character model (deadline: 2/23)
-  - [ ] Have a map for the player to place buildings (deadline: 3/09)
-  - [ ] Have boundaries that the player cannot cross (deadline: 3/16)
+- [ ] Menu for at least a building (Zixuan+Benjamin deadline: 3/02)
+  - [ ] Finalize a building model (William deadline: 2/26)
+- [ ] Create the world (Zixuan+William deadline: 3/16)
+  - [ ] Finalize a character model (William deadline: 2/23)
+  - [ ] Have a map for the player to place buildings (Zixuan deadline: 3/09)
+  - [ ] Have boundaries that the player cannot cross (Benjamin deadline: 3/16)
 
 #### Beyond MVP(May???)
 
