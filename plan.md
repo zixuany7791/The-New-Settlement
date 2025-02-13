@@ -15,6 +15,9 @@
   - [ ] Finalize a character model (William deadline: 2/23)
   - [ ] Have a map for the player to place buildings (Zixuan deadline: 3/09)
   - [ ] Have boundaries that the player cannot cross (Benjamin deadline: 3/16)
+- [ ] Gameplay (All try to figure out: 4/21)
+  - [ ] Shop system
+    - [ ] Generate Passive Money, For each building - generate more
 
 #### Beyond MVP(May???)
 
