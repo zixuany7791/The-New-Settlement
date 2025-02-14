@@ -13,11 +13,11 @@
   - [ ] Finalize a building model (William deadline: 2/26)
 - [ ] Create the world (Zixuan+William deadline: 3/16)
   - [ ] Finalize a character model (William deadline: 2/23)
-  - [ ] Have a map for the player to place buildings (Zixuan deadline: 3/09)
+  - [ ] Design a map for the player to place buildings (Zixuan+Benjamin+William deadline: 3/09)
   - [ ] Have boundaries that the player cannot cross (Benjamin deadline: 3/16)
-- [ ] Gameplay (All try to figure out: 4/21)
-  - [ ] Shop system
-    - [ ] Generate Passive Money, For each building - generate more
+- [ ] Gameplay (Zixuan+Benjamin+William: 4/21)
+  - [ ] Economy system
+    - [ ] Each building generates some passive money
 
 #### Beyond MVP(May???)
 
@@ -26,6 +26,7 @@
 - [ ] Center the buildings so that the building is placed where the mouse is clicked
 - [ ] Write a story that opens when the player starts
 - [ ] Having a menu for starting the game when opened
+- [ ] Add a population system that limits the amount of building that can be built
 
 
 <!-- EXAMPLE
