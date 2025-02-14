@@ -17,7 +17,7 @@
   - [ ] Have boundaries that the player cannot cross (Benjamin deadline: 3/16)
 - [ ] Gameplay (Zixuan+Benjamin+William: 4/21)
   - [ ] Economy system
-    - [ ] Each building generates some passive money
+    - [ ] Each building generates some passive money (TAX)
 
 #### Beyond MVP(May???)
 
