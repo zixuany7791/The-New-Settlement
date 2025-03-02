@@ -51,4 +51,4 @@ LMC={
 
 [layer_names]
 
-2d_physics/layer_2="interaction_area"
+2d_physics/layer_2="interactions"
