@@ -5,6 +5,7 @@ extends StaticBody2D
 
 func _ready() -> void:
 	interaction_area.interact = _on_interact
-	
+
+# When the player interact with the building, it would print in the console
 func _on_interact():
 	print("worked")
