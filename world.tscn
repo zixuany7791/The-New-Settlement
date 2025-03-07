@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://rcd7vc7mj8e2"]
+[gd_scene load_steps=7 format=3 uid="uid://rcd7vc7mj8e2"]
 
 [ext_resource type="PackedScene" uid="uid://bhglro57ltxjk" path="res://Character/character_body_2d.tscn" id="1_s5q8u"]
 [ext_resource type="Script" path="res://Character/movement.gd" id="2_47pq3"]
 [ext_resource type="PackedScene" uid="uid://c0kbn1juhl3ri" path="res://Buildings/building_block.tscn" id="3_gwd6m"]
 [ext_resource type="Script" path="res://build.gd" id="4_wvnde"]
+[ext_resource type="Script" path="res://building_slots.gd" id="5_jix13"]
+[ext_resource type="Script" path="res://toggling_panel.gd" id="6_s51nj"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(331, 281)
@@ -21,3 +23,22 @@ position_smoothing_speed = 10.0
 position = Vector2(-325, -281)
 scale = Vector2(0.967773, 1)
 script = ExtResource("4_wvnde")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 137.0
+offset_top = 37.0
+offset_right = 177.0
+offset_bottom = 77.0
+script = ExtResource("5_jix13")
+
+[node name="BuildingMenuPanel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -137.0
+offset_top = -41.0
+offset_right = 1012.0
+offset_bottom = 117.0
+script = ExtResource("6_s51nj")
