@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj0t1pbo1xgc4"]
+
+[ext_resource type="Script" path="res://menu/building_menu.gd" id="1_ququp"]
+
+[node name="Popupmenu" type="Panel"]
+script = ExtResource("1_ququp")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 5.0
+offset_top = -1.0
+offset_right = 1156.0
+offset_bottom = 160.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.003
+anchor_right = -0.003
+offset_left = -0.547
+offset_top = 1.0
+offset_right = 462.453
+offset_bottom = 163.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 0
+offset_right = 85.0
+offset_bottom = 86.0
