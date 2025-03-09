@@ -25,4 +25,4 @@ shape = SubResource("RectangleShape2D_ddhmt")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_kd40u")]
 position = Vector2(1.52588e-05, 0.910531)
-interact_name = "Enter Building"
+interact_name = "Press E to enter building"
