@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Buildings/interaction_area.gd" id="1_a5l2l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t3hjp"]
-radius = 42.107
+radius = 129.004
 
 [sub_resource type="TileSet" id="TileSet_jdfs7"]
 

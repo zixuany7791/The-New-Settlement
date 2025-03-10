@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://rcd7vc7mj8e2"]
+
+[ext_resource type="PackedScene" uid="uid://bhglro57ltxjk" path="res://Character/character_body_2d.tscn" id="1_s5q8u"]
+[ext_resource type="PackedScene" uid="uid://c0kbn1juhl3ri" path="res://Buildings/building_block.tscn" id="3_gwd6m"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(505, 320)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_s5q8u")]
+position = Vector2(-394, -262)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(466, 268)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Building Block" parent="." instance=ExtResource("3_gwd6m")]
+position = Vector2(-505, -317)
+scale = Vector2(0.967773, 1)
