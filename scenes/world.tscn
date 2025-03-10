@@ -112,17 +112,14 @@ tile_map_data = PackedByteArray("AAAAAP//AgAAAAAAAAABAP//AgAAAAAAAAACAP//AgAAAAA
 tile_set = SubResource("TileSet_6qj8m")
 
 [node name="CharacterBody2D" parent="TileMapLayer" instance=ExtResource("2_rmsfy")]
-position = Vector2(-464, -264)
 
 [node name="Camera2D" type="Camera2D" parent="TileMapLayer/CharacterBody2D"]
-visible = false
-position = Vector2(336, 272)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="Building Block" parent="TileMapLayer" instance=ExtResource("4_p7qy6")]
 visible = false
-position = Vector2(-128, -56)
+position = Vector2(-192, -64)
 scale = Vector2(0.967773, 1)
 script = ExtResource("5_ots4y")
