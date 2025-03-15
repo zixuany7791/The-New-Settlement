@@ -13,7 +13,6 @@ func _ready():
 	camera = get_node("Camera2D")
 
 func _input(event):
-	# Detect when the "m" key is pressed
 	if Input.is_action_just_pressed("m"):
 		toggle_menu()
 
