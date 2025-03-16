@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b5vc4tsyi5dyr" path="res://Cute_Fantasy_Free/Tiles/Beach_Tile.png" id="1_emlw3"]
 [ext_resource type="PackedScene" uid="uid://bhglro57ltxjk" path="res://Character/character_body_2d.tscn" id="1_s5q8u"]
 [ext_resource type="Texture2D" uid="uid://4icbhownnug" path="res://Cute_Fantasy_Free/Tiles/Cliff_Tile.png" id="2_7xf57"]
-[ext_resource type="PackedScene" uid="uid://c0kbn1juhl3ri" path="res://Buildings/building_block.tscn" id="3_gwd6m"]
+[ext_resource type="PackedScene" uid="uid://b83bj5t7xvmlg" path="res://Buildings/building_block.tscn" id="3_gwd6m"]
 [ext_resource type="Texture2D" uid="uid://dqsxryknwfaqg" path="res://Cute_Fantasy_Free/Tiles/Grass_Middle.png" id="3_nqo82"]
 [ext_resource type="Texture2D" uid="uid://c7v8cqjxxgj2y" path="res://Cute_Fantasy_Free/Tiles/Path_Middle.png" id="4_k6aft"]
 [ext_resource type="Texture2D" uid="uid://d0eimtr5xp625" path="res://Cute_Fantasy_Free/Tiles/Path_Tile.png" id="5_b3t0y"]
@@ -112,6 +112,7 @@ tile_map_data = PackedByteArray("AAAAAP//AgAAAAAAAAABAP//AgAAAAAAAAACAP//AgAAAAA
 tile_set = SubResource("TileSet_6qj8m")
 
 [node name="CharacterBody2D" parent="TileMapLayer" instance=ExtResource("1_s5q8u")]
+scale = Vector2(0.33, 0.33)
 
 [node name="Camera2D" type="Camera2D" parent="TileMapLayer/CharacterBody2D"]
 zoom = Vector2(5, 5)
@@ -119,7 +120,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="Building Block" parent="TileMapLayer" instance=ExtResource("3_gwd6m")]
-visible = false
-position = Vector2(0, 0)
-scale = Vector2(0.967773, 1)
+position = Vector2(0, 43)
+scale = Vector2(0.33, 0.33)
 script = ExtResource("10_w16rm")

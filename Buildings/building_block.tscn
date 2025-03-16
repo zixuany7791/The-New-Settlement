@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0kbn1juhl3ri"]
+[gd_scene load_steps=5 format=3 uid="uid://b83bj5t7xvmlg"]
 
 [ext_resource type="Texture2D" uid="uid://db0gvfc4sa6ik" path="res://icon.svg" id="1_dbmel"]
 [ext_resource type="Script" path="res://Buildings/building_block.gd" id="1_ug5q4"]
@@ -8,12 +8,9 @@
 size = Vector2(0.903125, 20)
 
 [node name="Building Block" type="StaticBody2D"]
-position = Vector2(580, 306)
-scale = Vector2(-1.11351, 1.09826)
 script = ExtResource("1_ug5q4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3.59227, 12.7474)
 scale = Vector2(0.783784, 0.828571)
 texture = ExtResource("1_dbmel")
 
@@ -24,5 +21,4 @@ scale = Vector2(112.343, -5.00268)
 shape = SubResource("RectangleShape2D_ddhmt")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_kd40u")]
-position = Vector2(3.59225, 12.7474)
 interact_name = "Press E to enter building"
