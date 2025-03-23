@@ -122,3 +122,6 @@ position_smoothing_speed = 10.0
 position = Vector2(0, 43)
 scale = Vector2(0.33, 0.33)
 script = null
+
+[node name="MapCamera" type="Camera2D" parent="TileMapLayer"]
+zoom = Vector2(1.43, 1.43)
