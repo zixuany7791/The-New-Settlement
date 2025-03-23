@@ -14,3 +14,5 @@ func inst(pos):
 	var instance = mynode.instantiate()
 	instance.position = pos
 	add_child(instance)
+
+	
