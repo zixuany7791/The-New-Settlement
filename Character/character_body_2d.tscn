@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Character/interaction_component.gd" id="1_qqq32"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_at2vv"]
-size = Vector2(32, 32)
+size = Vector2(16, 32)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5788k"]
 load_path = "res://.godot/imported/Character Model-1.png.png-ca58c20093b1b83dee3f5ec600391b3e.ctex"
@@ -19,8 +19,8 @@ script = ExtResource("1_j5lao")
 shape = SubResource("RectangleShape2D_at2vv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.43051e-06, -1.43051e-06)
-scale = Vector2(0.2125, 0.2125)
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(0.25, 0.25)
 texture = SubResource("CompressedTexture2D_5788k")
 
 [node name="Interaction Component" type="Node2D" parent="."]
@@ -36,10 +36,10 @@ monitorable = false
 shape = SubResource("CircleShape2D_mudi0")
 
 [node name="InteractLabel" type="Label" parent="Interaction Component"]
-offset_left = -144.0
-offset_top = -64.0
-offset_right = 154.0
-offset_bottom = -41.0
+offset_left = -152.0
+offset_top = -48.0
+offset_right = 146.0
+offset_bottom = -25.0
 size_flags_horizontal = 4
 size_flags_vertical = 1
 text = "test"

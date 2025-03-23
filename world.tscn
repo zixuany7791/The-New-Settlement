@@ -1,15 +1,14 @@
-[gd_scene load_steps=19 format=4 uid="uid://ckk754ry3hem0"]
+[gd_scene load_steps=18 format=4 uid="uid://ckk754ry3hem0"]
 
-[ext_resource type="Texture2D" path="res://Cute_Fantasy_Free/Tiles/Beach_Tile.png" id="1_emlw3"]
+[ext_resource type="Texture2D" uid="uid://bjtc6g2yaqa62" path="res://Buildings/Cute_Fantasy_Free/Tiles/Beach_Tile.png" id="1_emlw3"]
 [ext_resource type="PackedScene" uid="uid://bhglro57ltxjk" path="res://Character/character_body_2d.tscn" id="1_s5q8u"]
-[ext_resource type="Texture2D" path="res://Cute_Fantasy_Free/Tiles/Cliff_Tile.png" id="2_7xf57"]
-[ext_resource type="PackedScene" uid="uid://c0kbn1juhl3ri" path="res://Buildings/building_block.tscn" id="3_gwd6m"]
-[ext_resource type="Texture2D" path="res://Cute_Fantasy_Free/Tiles/Grass_Middle.png" id="3_nqo82"]
-[ext_resource type="Texture2D" path="res://Cute_Fantasy_Free/Tiles/Path_Middle.png" id="4_k6aft"]
-[ext_resource type="Texture2D" path="res://Cute_Fantasy_Free/Tiles/Path_Tile.png" id="5_b3t0y"]
-[ext_resource type="Texture2D" path="res://Cute_Fantasy_Free/Tiles/Water_Middle.png" id="6_yg8ji"]
-[ext_resource type="Texture2D" path="res://Cute_Fantasy_Free/Tiles/Water_Tile.png" id="7_mpjvs"]
-[ext_resource type="Script" path="res://Buildings/testbuild.gd" id="10_w16rm"]
+[ext_resource type="Texture2D" uid="uid://cqsok1f1dlxgk" path="res://Buildings/Cute_Fantasy_Free/Tiles/Cliff_Tile.png" id="2_7xf57"]
+[ext_resource type="PackedScene" uid="uid://b83bj5t7xvmlg" path="res://Buildings/building_block.tscn" id="3_gwd6m"]
+[ext_resource type="Texture2D" uid="uid://budr0luay1lwa" path="res://Buildings/Cute_Fantasy_Free/Tiles/Grass_Middle.png" id="3_nqo82"]
+[ext_resource type="Texture2D" uid="uid://b3uhyrcxj4dpv" path="res://Buildings/Cute_Fantasy_Free/Tiles/Path_Middle.png" id="4_k6aft"]
+[ext_resource type="Texture2D" uid="uid://dbddls3ljnnjd" path="res://Buildings/Cute_Fantasy_Free/Tiles/Path_Tile.png" id="5_b3t0y"]
+[ext_resource type="Texture2D" uid="uid://bn2dvmwkhhrrj" path="res://Buildings/Cute_Fantasy_Free/Tiles/Water_Middle.png" id="6_yg8ji"]
+[ext_resource type="Texture2D" uid="uid://cbjmucxeq1s0l" path="res://Buildings/Cute_Fantasy_Free/Tiles/Water_Tile.png" id="7_mpjvs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8o24v"]
 texture = ExtResource("1_emlw3")
@@ -122,4 +121,4 @@ position_smoothing_speed = 10.0
 [node name="Building Block" parent="TileMapLayer" instance=ExtResource("3_gwd6m")]
 position = Vector2(0, 43)
 scale = Vector2(0.33, 0.33)
-script = ExtResource("10_w16rm")
+script = null
