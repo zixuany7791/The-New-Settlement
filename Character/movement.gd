@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var speed = 400
+@export var speed = 40
 var is_interacting = false
-const SPEED = 340.0
+const SPEED = 40.0
 const JUMP_VELOCITY = 10000
 
 func get_input():

@@ -3,7 +3,7 @@ extends Control
 signal building_selected(building_scene)
 
 var buildings = [
-	{"name": "House", "cost": 50, "scene": preload("res://buildings/building_block.tscn")},
+	{"name": "House", "cost": 50, "scene": preload("res://Buildings/building_block.tscn")},
 ]
 
 var popup_menu : Popup  # Reference to the Popup node

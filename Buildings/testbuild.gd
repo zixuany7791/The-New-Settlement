@@ -1,6 +1,6 @@
 extends Node2D  
 
-var mynode = preload("res://buildings/building_block.tscn")
+var mynode = preload("res://Buildings/building_block.tscn")
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("LMC"):
