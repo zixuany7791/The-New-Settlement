@@ -3,6 +3,7 @@ extends Control
 # Signal emitted when a building is selected
 signal building_selected(building_scene)
 
+
 # List of available buildings
 var buildings = [
 	{"name": "House", "cost": 50, "scene": preload("res://Buildings/building_block.tscn")},
