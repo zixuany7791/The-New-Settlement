@@ -125,3 +125,8 @@ script = null
 
 [node name="MapCamera" type="Camera2D" parent="TileMapLayer"]
 zoom = Vector2(1.43, 1.43)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TileMapLayer"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMapLayer/StaticBody2D"]
+polygon = PackedVector2Array(388, -392, 392, 262, 315, 263, 312, 231, 251, 231, 247, 183, 186, 185, 184, 165, 89, 167, 89, 182, -71, 185, -72, 228, -246, 230, -248, 386, -388, 387, -385, -389, 371, -392, 368, -564, -517, -551, -556, 485, 606, 542, 544, -577, 402, -569, 373, -392)
