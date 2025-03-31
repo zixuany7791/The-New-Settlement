@@ -17,7 +17,7 @@
   - [ ] Have boundaries that the player cannot cross (Benjamin deadline: 3/16)
 - [ ] Gameplay (Zixuan+Benjamin+William: 4/21)
   - [ ] Economy system
-    - [ ] Each building generates some passive money (TAX)
+	- [ ] Each building generates some passive money (TAX)
 
 #### Beyond MVP(May???)
 
@@ -44,7 +44,7 @@
 - [x] Back-end
   - [x] Use regex to test whether or not the word can go through the GGD (deadline: 3/1)
   - [x] Use the Twinword API to find related words (deadline: 3/15)
-    - [ ] Iterate through the words until an opposite example can be found (deadline: 4/1)
+	- [ ] Iterate through the words until an opposite example can be found (deadline: 4/1)
 
 #### Beyond MVP(May???)
 
@@ -70,4 +70,3 @@
 |   |   |
 
 -->
-
