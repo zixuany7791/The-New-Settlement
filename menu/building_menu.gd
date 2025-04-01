@@ -1,5 +1,5 @@
 extends Control
-
+class_name BuildingMenu
 # Signal emitted when a building is selected
 signal building_selected(building_scene)
 
@@ -16,6 +16,9 @@ var can_place_building := false
 var selected_building_scene : PackedScene
 var building_preview : Node2D  # This will hold our preview instance
 var preview_visible := false
+
+var placed_buildings = {}
+
 
 func _ready():
 	# Add buttons for each building in the Popup menu
@@ -35,8 +38,8 @@ func _process(delta):
 		update_building_preview()
 
 func _on_building_selected(building_scene):
-	print("Emitting building_selected signal with scene:", building_scene)
-	emit_signal("building_selected", building_scene)
+	#print("Emitting building_selected signal with scene:", building_scene)
+	#emit_signal("building_selected", building_scene)
 	selected_building_scene = building_scene
 	can_place_building = true
 	
@@ -47,7 +50,6 @@ func _on_building_selected(building_scene):
 		get_parent().get_parent().get_parent().add_child(building_preview)
 		preview_visible = true
 	
-	hide()  # Hide the menu after selecting a building
 
 func update_building_preview():
 	if building_preview:
@@ -57,11 +59,22 @@ func update_building_preview():
 
 func place_building(pos):
 	if selected_building_scene:
-		print("Placing building at:", pos)
+		var num = 999
+		for building in placed_buildings:
+			if building.distance_to(pos) < num:
+				num = building.distance_to(pos)
+			if building.distance_to(pos) < 45:
+				print("You are trying to place the building at ", pos)
+				print(building.distance_to(pos))
+				return
+		print(num)
 		var instance = selected_building_scene.instantiate()
 		instance.position = pos
 		instance.scale = Vector2(0.33, 0.33)
+		print("Placing building at:", instance.position)
 		get_parent().get_parent().get_parent().add_child(instance)
+		placed_buildings[instance.position] = instance
+		print(placed_buildings)
 		
 		# Don't disable placement after placing, keep the preview active
 	else:
@@ -70,7 +83,6 @@ func place_building(pos):
 func _physics_process(delta):
 	if can_place_building and Input.is_action_just_pressed("LMC"):
 		var mouse_position = get_global_mouse_position()
-		print("Placing building at:", mouse_position)
 		place_building(mouse_position)
 	
 	# Right click to cancel placement
@@ -83,15 +95,7 @@ func cancel_building_placement():
 		building_preview.queue_free()
 		building_preview = null
 
-# Clean up the preview when exiting
-func _exit_tree():
-	if building_preview:
-		building_preview.queue_free()
 
-# Show the popup menu
-func show_menu():
-	show()
 
-# Hide the popup menu
-func hide_menu():
-	hide()
+
+	

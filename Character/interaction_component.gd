@@ -15,25 +15,14 @@ var can_interact := true
 func _ready():
 	popup_menu = popup_menu_scene.instantiate()
 	add_child(popup_menu)
+	popup_menu.print_tree()
 	popup_menu.hide() 
 	interact_label.hide()
-	# Debug information
-	if map_camera:
-		print("MapCamera type:", map_camera.get_class())  # Should print "Camera2D"
-		print("MapCamera is in scene tree:", map_camera.is_inside_tree())  # Should print "true"
-		print("PlayerCamera current:", player_camera.is_current())  # Should print "true"
-		print("MapCamera current:", map_camera.is_current())
-	else:
-		print("MapCamera not found! Check the scene hierarchy.")
 
 	# Ensure the map camera is not active initially
 	if map_camera:
 		player_camera.make_current()  # Enable the player's camera
-		print("PlayerCamera current:", player_camera.is_current())  # Should print "true"
-		print("MapCamera current:", map_camera.is_current())  # Should print "false"
-	else:
-		print("MapCamera not found! Check the scene hierarchy.")
-
+	
 func switch_to_map_camera():
 	if map_camera:
 		map_camera.make_current()
@@ -54,8 +43,11 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape") and can_interact:
 		interact_label.show()
 		if current_interactions:
+			var menu_script = popup_menu as BuildingMenu
+			menu_script.cancel_building_placement()
 			toggle_menu_close()
 			switch_to_player_camera()
+			
 
 func _process(_delta: float) -> void:
 	if current_interactions and can_interact:
