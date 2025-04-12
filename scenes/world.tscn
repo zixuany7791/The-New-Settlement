@@ -1,12 +1,13 @@
-[gd_scene load_steps=23 format=4 uid="uid://rcd7vc7mj8e2"]
+[gd_scene load_steps=24 format=4 uid="uid://rcd7vc7mj8e2"]
 
 [ext_resource type="PackedScene" uid="uid://bhglro57ltxjk" path="res://Character/character_body_2d.tscn" id="2_rmsfy"]
 [ext_resource type="Texture2D" uid="uid://bur1saajwv4cq" path="res://Tiles/Cliff_Tile-Photoroom.png" id="4_e28p7"]
 [ext_resource type="Texture2D" uid="uid://dr1jwmvpxji7r" path="res://Tiles/4_Seasons_Trees.png" id="4_ldxab"]
-[ext_resource type="PackedScene" uid="uid://b83bj5t7xvmlg" path="res://Buildings/building_block.tscn" id="4_p7qy6"]
+[ext_resource type="PackedScene" uid="uid://c0kbn1juhl3ri" path="res://Buildings/building_block.tscn" id="4_p7qy6"]
 [ext_resource type="Texture2D" uid="uid://b5vc4tsyi5dyr" path="res://Tiles/Beach_Tile.png" id="4_yohsp"]
 [ext_resource type="Texture2D" uid="uid://4icbhownnug" path="res://Tiles/Cliff_Tile.png" id="5_k6kgf"]
 [ext_resource type="Texture2D" uid="uid://c7v8cqjxxgj2y" path="res://Tiles/Path_Middle.png" id="5_kpsiw"]
+[ext_resource type="Script" path="res://Buildings/testbuild.gd" id="5_ots4y"]
 [ext_resource type="Texture2D" uid="uid://dqsxryknwfaqg" path="res://Tiles/Grass_Middle.png" id="6_ooesq"]
 [ext_resource type="Texture2D" uid="uid://d0eimtr5xp625" path="res://Tiles/Path_Tile.png" id="8_oeluy"]
 [ext_resource type="Texture2D" uid="uid://dsl3hfkw3kb0w" path="res://Tiles/Water_Middle.png" id="9_oh1ti"]
@@ -207,3 +208,4 @@ position_smoothing_speed = 10.0
 [node name="Building Block" parent="TileMap" instance=ExtResource("4_p7qy6")]
 position = Vector2(-64, -152)
 scale = Vector2(0.967773, 1)
+script = ExtResource("5_ots4y")

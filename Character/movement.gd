@@ -17,3 +17,4 @@ func _physics_process(delta):
 
 func set_interacting_state(state: bool):
 	is_interacting = state
+	print(state)
