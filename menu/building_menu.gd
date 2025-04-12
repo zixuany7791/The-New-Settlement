@@ -3,6 +3,7 @@ class_name BuildingMenu
 # Signal emitted when a building is selected
 signal building_selected(building_scene)
 
+@onready var interaction_component = get_node("../CharacterBody2D/Interaction Component")  # Adjust the path based on your scene tree
 # List of available buildings
 var buildings = [
 	{"name": "House", "cost": 50, "scene": preload("res://Buildings/building_block.tscn")},
@@ -26,20 +27,24 @@ func _ready():
 	for building in buildings:
 		var btn = Button.new()
 		btn.text = building["name"] + " ($" + str(building["cost"]) + ")"
-		print("Connecting button for:", building["name"])
+		#print("Connecting button for:", building["name"])
 		btn.connect("pressed", Callable(self, "_on_building_selected").bind(building["scene"]))
 		container.add_child(btn)
 
 	# Hide the menu initially
 	hide()
+	
+	interaction_component.connect("escape_pressed", Callable(self, "_on_escape_pressed"))
+	interaction_component.connect("interacted", Callable(self, "_on_interacted"))
+
+	
 
 func _process(delta):
 	if can_place_building:
 		update_building_preview()
 
 func _on_building_selected(building_scene):
-	#print("Emitting building_selected signal with scene:", building_scene)
-	#emit_signal("building_selected", building_scene)
+
 	selected_building_scene = building_scene
 	can_place_building = true
 	
@@ -49,6 +54,7 @@ func _on_building_selected(building_scene):
 		building_preview.modulate = Color(1, 1, 1, 0.5)  # Make it semi-transparent
 		get_parent().get_parent().get_parent().add_child(building_preview)
 		preview_visible = true
+		print("Building preview created:", building_preview)
 	
 
 func update_building_preview():
@@ -67,7 +73,6 @@ func place_building(pos):
 				print("You are trying to place the building at ", pos)
 				print(building.distance_to(pos))
 				return
-		print(num)
 		var instance = selected_building_scene.instantiate()
 		instance.position = pos
 		instance.scale = Vector2(0.33, 0.33)
@@ -89,9 +94,17 @@ func _physics_process(delta):
 	if can_place_building and Input.is_action_just_pressed("RMC"):
 		cancel_building_placement()
 
+
+func _on_interacted():
+	print("Did something")
+	show()
+func _on_escape_pressed():
+	print("canceled building preview")
+	cancel_building_placement()
+	hide()
 func cancel_building_placement():
 	can_place_building = false
-	if building_preview:
+	if is_instance_valid(building_preview):
 		building_preview.queue_free()
 		building_preview = null
 
