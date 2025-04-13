@@ -8,7 +8,7 @@ var can_interact := true
 @onready var player = get_parent()  # Assuming the interaction is a child of the player
 
 @onready var player_camera = get_node("../Camera2D")  # Player's camera
-#@onready var map_camera = get_node("../../MapCamera")  # Map-view camera
+@onready var map_camera = get_node("../../../MapCamera")  # Map-view camera
 
 signal escape_pressed  # Define a signal
 signal interacted
@@ -18,18 +18,18 @@ func _ready():
 	interact_label.hide()
 
 	# Ensure the map camera is not active initially
-	#if map_camera:
-		#player_camera.make_current()  # Enable the player's camera
+	if map_camera:
+		player_camera.make_current()  # Enable the player's camera
 	
-#func switch_to_map_camera():
-	#if map_camera:
-		#map_camera.make_current()
-		#print("Switched to MapCamera")
+func switch_to_map_camera():
+	if map_camera:
+		map_camera.make_current()
+		print("Switched to MapCamera")
 
-#func switch_to_player_camera():
-	#if map_camera:
-		#player_camera.make_current()
-		#print("Switched to PlayerCamera")
+func switch_to_player_camera():
+	if map_camera:
+		player_camera.make_current()
+		print("Switched to PlayerCamera")
 func disbale_player_movement():
 	player.set_interacting_state(true)
 func enable_player_movement():
@@ -42,13 +42,13 @@ func _input(event: InputEvent) -> void:
 			print("sending signal")
 			emit_signal("interacted")
 			disbale_player_movement()
-			#switch_to_map_camera()
+			switch_to_map_camera()
 	if event.is_action_pressed("escape") and can_interact:
 		interact_label.show()
 		if current_interactions:
 			emit_signal("escape_pressed")  # Emit the signal when Escape is pressed
 			enable_player_movement()
-			#switch_to_player_camera()
+			switch_to_player_camera()
 			
 
 func _process(_delta: float) -> void:
