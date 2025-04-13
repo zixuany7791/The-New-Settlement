@@ -306,6 +306,7 @@ offset_right = -464.0
 offset_bottom = -400.0
 
 [node name="MapCamera" type="Camera2D" parent="TileMapLayer"]
+zoom = Vector2(0.8, 0.8)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
