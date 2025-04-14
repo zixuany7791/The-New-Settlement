@@ -3,7 +3,7 @@ class_name BuildingMenu
 # Signal emitted when a building is selected
 signal building_selected(building_scene)
 
-@onready var interaction_component = get_node("../Layer3/CharacterBody2D/Interaction Component")  # Adjust the path based on your scene tree
+@onready var interaction_component = get_node("../trunk/CharacterBody2D/Interaction Component")  # Adjust the path based on your scene tree
 # List of available buildings
 var buildings = [
 	{"name": "House", "cost": 50, "scene": preload("res://Buildings/building_block.tscn")},
