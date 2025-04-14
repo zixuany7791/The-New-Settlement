@@ -1,24 +1,25 @@
 [gd_scene load_steps=5 format=3 uid="uid://c0kbn1juhl3ri"]
 
-[ext_resource type="Texture2D" uid="uid://db0gvfc4sa6ik" path="res://icon.svg" id="1_dbmel"]
 [ext_resource type="Script" path="res://Buildings/building_block.gd" id="1_ug5q4"]
 [ext_resource type="PackedScene" uid="uid://bttuq5kt503v3" path="res://Buildings/interaction_area.tscn" id="2_kd40u"]
+[ext_resource type="Texture2D" uid="uid://bfaig8ae2t1va" path="res://Buildings/House-1.png (1).png" id="2_qslw4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddhmt"]
-size = Vector2(0.903125, 20)
+size = Vector2(2.0894, 38.7846)
 
 [node name="Building Block" type="StaticBody2D"]
 script = ExtResource("1_ug5q4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.783784, 0.828571)
-texture = ExtResource("1_dbmel")
+position = Vector2(1.19209e-07, 4.54747e-13)
+scale = Vector2(0.791892, 0.8)
+texture = ExtResource("2_qslw4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(7.62939e-06, -0.910538)
+position = Vector2(5.36494, 33.0134)
 scale = Vector2(112.343, -5.00268)
 shape = SubResource("RectangleShape2D_ddhmt")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_kd40u")]
+scale = Vector2(2, 2)
 interact_name = "Press E to enter building"

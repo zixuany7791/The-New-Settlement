@@ -69,7 +69,7 @@ func place_building(pos):
 		for building in placed_buildings:
 			if building.distance_to(pos) < num:
 				num = building.distance_to(pos)
-			if building.distance_to(pos) < 45:
+			if building.distance_to(pos) < 85:
 				print("You are trying to place the building at ", pos)
 				print(building.distance_to(pos))
 				return
