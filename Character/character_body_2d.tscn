@@ -28,7 +28,6 @@ z_index = 1
 script = ExtResource("1_qqq32")
 
 [node name="InteractionArea" type="Area2D" parent="Interaction Component"]
-collision_layer = 0
 collision_mask = 2
 monitorable = false
 

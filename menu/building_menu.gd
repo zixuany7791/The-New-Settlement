@@ -6,7 +6,8 @@ signal building_selected(building_scene)
 @onready var interaction_component = get_node("../trunk/CharacterBody2D/Interaction Component")  # Adjust the path based on your scene tree
 # List of available buildings
 var buildings = [
-	{"name": "House", "cost": 50, "scene": preload("res://Buildings/building_block.tscn")},
+	{"name": "House", "cost": 50, "scene": preload("res://Buildings/house.tscn")},
+	{"name": "Lumberyard", "cost": 50, "scene": preload("res://Buildings/LumberYard.tscn")},
 ]
 
 # Reference to the PopupMenu node
@@ -27,7 +28,6 @@ func _ready():
 	for building in buildings:
 		var btn = Button.new()
 		btn.text = building["name"] + " ($" + str(building["cost"]) + ")"
-		#print("Connecting button for:", building["name"])
 		btn.connect("pressed", Callable(self, "_on_building_selected").bind(building["scene"]))
 		container.add_child(btn)
 
@@ -48,13 +48,15 @@ func _on_building_selected(building_scene):
 	selected_building_scene = building_scene
 	can_place_building = true
 	
+	if is_instance_valid(building_preview):
+		building_preview.queue_free()
+		building_preview = null
 	# Create preview instance if it doesn't exist
-	if not building_preview and selected_building_scene:
+	if selected_building_scene:
 		building_preview = selected_building_scene.instantiate()
 		building_preview.modulate = Color(1, 1, 1, 0.5)  # Make it semi-transparent
 		get_parent().get_parent().get_parent().add_child(building_preview)
 		preview_visible = true
-		print("Building preview created:", building_preview)
 	
 
 func update_building_preview():
@@ -62,6 +64,7 @@ func update_building_preview():
 		var mouse_position = get_global_mouse_position()
 		building_preview.position = mouse_position
 		building_preview.scale = Vector2(0.33, 0.33)
+		
 
 func place_building(pos):
 	if selected_building_scene:
@@ -96,10 +99,8 @@ func _physics_process(delta):
 
 
 func _on_interacted():
-	print("Did something")
 	show()
 func _on_escape_pressed():
-	print("canceled building preview")
 	cancel_building_placement()
 	hide()
 func cancel_building_placement():

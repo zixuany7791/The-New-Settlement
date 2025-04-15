@@ -24,12 +24,10 @@ func _ready():
 func switch_to_map_camera():
 	if map_camera:
 		map_camera.make_current()
-		print("Switched to MapCamera")
 
 func switch_to_player_camera():
 	if map_camera:
 		player_camera.make_current()
-		print("Switched to PlayerCamera")
 func disbale_player_movement():
 	player.set_interacting_state(true)
 func enable_player_movement():
@@ -39,7 +37,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and can_interact:
 		interact_label.hide()
 		if current_interactions:
-			print("sending signal")
+			print(current_interactions[0].interact_name)
 			emit_signal("interacted")
 			disbale_player_movement()
 			switch_to_map_camera()
@@ -56,7 +54,7 @@ func _process(_delta: float) -> void:
 		# interact with the object that is closest to the player
 		current_interactions.sort_custom(_sort_by_nearest)
 		if current_interactions[0].is_interactable: 
-			interact_label.text  = current_interactions[0].interact_name
+			interact_label.text  = "Press e to enter"
 			interact_label.show()
 			
 # See which interactable object is the nearest
@@ -68,6 +66,7 @@ func _sort_by_nearest(area1, area2):
 # When the player enters an interactable area, the object gets added into the array
 func _on_interaction_area_area_entered(area: Area2D) -> void:
 	current_interactions.push_back(area)
+	
 
 # When the player leaves an interactable area, the object gets deleted into the array
 func _on_interaction_area_area_exited(area: Area2D) -> void:

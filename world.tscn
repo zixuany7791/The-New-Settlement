@@ -1,9 +1,9 @@
-[gd_scene load_steps=34 format=4 uid="uid://c6eoq6fqbdgqh"]
+[gd_scene load_steps=34 format=4 uid="uid://btfxkm37edkdp"]
 
 [ext_resource type="Texture2D" uid="uid://b5vc4tsyi5dyr" path="res://Tiles/Beach_Tile.png" id="1_emlw3"]
 [ext_resource type="PackedScene" uid="uid://bhglro57ltxjk" path="res://Character/character_body_2d.tscn" id="1_s5q8u"]
 [ext_resource type="Texture2D" uid="uid://4icbhownnug" path="res://Tiles/Cliff_Tile.png" id="2_7xf57"]
-[ext_resource type="PackedScene" uid="uid://c0kbn1juhl3ri" path="res://Buildings/building_block.tscn" id="3_gwd6m"]
+[ext_resource type="PackedScene" uid="uid://dk7gcp53op27c" path="res://Buildings/house.tscn" id="3_gwd6m"]
 [ext_resource type="Texture2D" uid="uid://dqsxryknwfaqg" path="res://Tiles/Grass_Middle.png" id="3_nqo82"]
 [ext_resource type="Texture2D" uid="uid://c7v8cqjxxgj2y" path="res://Tiles/Path_Middle.png" id="4_k6aft"]
 [ext_resource type="Texture2D" uid="uid://d0eimtr5xp625" path="res://Tiles/Path_Tile.png" id="5_b3t0y"]
@@ -348,16 +348,15 @@ zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="Building Block" parent="TileMapLayer/trunk" instance=ExtResource("3_gwd6m")]
-y_sort_enabled = true
-position = Vector2(-2, 51)
+[node name="House" parent="TileMapLayer/trunk" instance=ExtResource("3_gwd6m")]
+position = Vector2(-3.47617, 64.2521)
 scale = Vector2(0.33, 0.33)
 
 [node name="Popupmenu" parent="TileMapLayer" instance=ExtResource("12_xgonp")]
-offset_left = -1099.0
-offset_top = -580.0
-offset_right = -1099.0
-offset_bottom = -580.0
+offset_left = -528.0
+offset_top = -400.0
+offset_right = -528.0
+offset_bottom = -400.0
 
 [node name="MapCamera" type="Camera2D" parent="TileMapLayer"]
 zoom = Vector2(0.8, 0.8)

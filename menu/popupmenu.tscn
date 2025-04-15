@@ -3,12 +3,19 @@
 [ext_resource type="Script" path="res://menu/building_menu.gd" id="1_ququp"]
 
 [node name="Popupmenu" type="Panel"]
+anchors_preset = -1
+anchor_left = -0.049
+anchor_right = 0.049
+anchor_bottom = 1.222
+offset_left = 56.448
+offset_right = -56.448
+offset_bottom = -791.856
 script = ExtResource("1_ququp")
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0
-offset_left = -64.0
-offset_right = 64.0
+offset_left = -128.0
+offset_right = 128.0
 offset_bottom = 800.0
 
 [node name="Panel" type="Panel" parent="Control"]
