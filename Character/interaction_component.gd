@@ -11,7 +11,8 @@ var can_interact := true
 @onready var map_camera = get_node("../../../MapCamera")  # Map-view camera
 
 signal escape_pressed  # Define a signal
-signal interacted
+signal house_interacted
+signal lumber_interacted
 
 func _ready():
 
@@ -28,7 +29,7 @@ func switch_to_map_camera():
 func switch_to_player_camera():
 	if map_camera:
 		player_camera.make_current()
-func disbale_player_movement():
+func disable_player_movement():
 	player.set_interacting_state(true)
 func enable_player_movement():
 	player.set_interacting_state(false)
@@ -37,16 +38,20 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and can_interact:
 		interact_label.hide()
 		if current_interactions:
+			disable_player_movement()
 			print(current_interactions[0].interact_name)
-			emit_signal("interacted")
-			disbale_player_movement()
-			switch_to_map_camera()
+			if current_interactions[0].interact_name == "LumberYard":
+				emit_signal("lumber_interacted")
+			elif current_interactions[0].interact_name == "House":
+				emit_signal("house_interacted")
+				switch_to_map_camera()
 	if event.is_action_pressed("escape") and can_interact:
 		interact_label.show()
 		if current_interactions:
 			emit_signal("escape_pressed")  # Emit the signal when Escape is pressed
 			enable_player_movement()
-			switch_to_player_camera()
+			if current_interactions[0].interact_name == "House":
+				switch_to_player_camera()
 			
 
 func _process(_delta: float) -> void:

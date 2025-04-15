@@ -10,8 +10,6 @@ var buildings = [
 	{"name": "Lumberyard", "cost": 50, "scene": preload("res://Buildings/LumberYard.tscn")},
 ]
 
-# Reference to the PopupMenu node
-var popup_menu : Popup
 
 # Variables for building placement
 var can_place_building := false
@@ -35,7 +33,7 @@ func _ready():
 	hide()
 	
 	interaction_component.connect("escape_pressed", Callable(self, "_on_escape_pressed"))
-	interaction_component.connect("interacted", Callable(self, "_on_interacted"))
+	interaction_component.connect("house_interacted", Callable(self, "_on_interacted"))
 
 	
 

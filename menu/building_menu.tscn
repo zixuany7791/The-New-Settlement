@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://menu/building_menu.gd" id="1_ququp"]
 
-[node name="Popupmenu" type="Panel"]
+[node name="Building_Menu" type="Panel"]
 anchors_preset = -1
 anchor_left = -0.049
 anchor_right = 0.049

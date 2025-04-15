@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://btfxkm37edkdp"]
+[gd_scene load_steps=35 format=4 uid="uid://btfxkm37edkdp"]
 
 [ext_resource type="Texture2D" uid="uid://b5vc4tsyi5dyr" path="res://Tiles/Beach_Tile.png" id="1_emlw3"]
 [ext_resource type="PackedScene" uid="uid://bhglro57ltxjk" path="res://Character/character_body_2d.tscn" id="1_s5q8u"]
@@ -10,7 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dsl3hfkw3kb0w" path="res://Tiles/Water_Middle.png" id="6_yg8ji"]
 [ext_resource type="Texture2D" uid="uid://c0bfchtlmef65" path="res://Tiles/Water_Tile.png" id="7_mpjvs"]
 [ext_resource type="Texture2D" uid="uid://bur1saajwv4cq" path="res://Tiles/Cliff_Tile-Photoroom.png" id="11_6l5qt"]
-[ext_resource type="PackedScene" uid="uid://bj0t1pbo1xgc4" path="res://menu/popupmenu.tscn" id="12_xgonp"]
+[ext_resource type="PackedScene" uid="uid://bcsl4blehcr6f" path="res://menu/lumber_menu.tscn" id="12_3xelm"]
+[ext_resource type="PackedScene" uid="uid://bj0t1pbo1xgc4" path="res://menu/building_menu.tscn" id="12_xgonp"]
 [ext_resource type="Texture2D" uid="uid://dr1jwmvpxji7r" path="res://Tiles/4_Seasons_Trees.png" id="12_yvvtp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8o24v"]
@@ -351,6 +352,14 @@ position_smoothing_speed = 10.0
 [node name="House" parent="TileMapLayer/trunk" instance=ExtResource("3_gwd6m")]
 position = Vector2(-3.47617, 64.2521)
 scale = Vector2(0.33, 0.33)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="TileMapLayer/trunk"]
+
+[node name="Lumber_menu" parent="TileMapLayer/trunk/CanvasLayer" instance=ExtResource("12_3xelm")]
+offset_left = -264.0
+offset_top = -196.0
+offset_right = 256.0
+offset_bottom = 188.0
 
 [node name="Popupmenu" parent="TileMapLayer" instance=ExtResource("12_xgonp")]
 offset_left = -528.0
