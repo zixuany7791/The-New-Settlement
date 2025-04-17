@@ -3,6 +3,7 @@ extends Control
 @onready var interaction_component = get_node("../../../Node2D/TileMapLayer/trunk/CharacterBody2D/Interaction Component")
 @onready var population_label = $Label
 @onready var assign_button = $Button
+@onready var ui_panel = self
 
 var assigned_workers := 0
 var max_workers := 5
@@ -25,6 +26,7 @@ func assign_worker():
 		print("No available population or max workers reached")
 
 func _on_interact():
-	show()
+	UIManager.open_lumberyard_ui(ui_panel)
+	
 func _on_escape_pressed():
 	hide()
