@@ -37,6 +37,7 @@ func enable_player_movement():
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and can_interact:
 		interact_label.hide()
+		print(interact_label.visible)
 		if current_interactions:
 			disable_player_movement()
 			print(current_interactions[0].interact_name)
@@ -58,9 +59,6 @@ func _process(_delta: float) -> void:
 	if current_interactions and can_interact:
 		# interact with the object that is closest to the player
 		current_interactions.sort_custom(_sort_by_nearest)
-		if current_interactions[0].is_interactable: 
-			interact_label.text  = "Press e to enter"
-			interact_label.show()
 			
 # See which interactable object is the nearest
 func _sort_by_nearest(area1, area2):
@@ -71,6 +69,10 @@ func _sort_by_nearest(area1, area2):
 # When the player enters an interactable area, the object gets added into the array
 func _on_interaction_area_area_entered(area: Area2D) -> void:
 	current_interactions.push_back(area)
+	if current_interactions[0].is_interactable: 
+			interact_label.text  = "Press e to enter"
+			interact_label.show()
+			print(interact_label.visible)
 	
 
 # When the player leaves an interactable area, the object gets deleted into the array

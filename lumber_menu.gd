@@ -1,6 +1,6 @@
 extends Control
 
-@onready var interaction_component = get_node("../../CharacterBody2D/Interaction Component")
+@onready var interaction_component = get_node("../../../Node2D/TileMapLayer/trunk/CharacterBody2D/Interaction Component")
 @onready var population_label = $Label
 @onready var assign_button = $Button
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0kjf8bkdn3au"]
+[gd_scene load_steps=7 format=3 uid="uid://c0kjf8bkdn3au"]
 
 [ext_resource type="Script" path="res://Buildings/lumber_yard.gd" id="1_6c8pv"]
 [ext_resource type="Texture2D" uid="uid://db0gvfc4sa6ik" path="res://icon.svg" id="1_07iuu"]
 [ext_resource type="Script" path="res://Buildings/lumber_interact.gd" id="3_n71f8"]
+[ext_resource type="PackedScene" uid="uid://bcsl4blehcr6f" path="res://menu/lumber_menu.tscn" id="4_lxvjl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ilbw"]
 size = Vector2(128, 128)
@@ -26,3 +27,11 @@ script = ExtResource("3_n71f8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lumber_interact"]
 shape = SubResource("CircleShape2D_6m76p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Lumber_menu" parent="CanvasLayer" instance=ExtResource("4_lxvjl")]
+offset_left = -200.0
+offset_top = -188.0
+offset_right = 200.0
+offset_bottom = 212.0
