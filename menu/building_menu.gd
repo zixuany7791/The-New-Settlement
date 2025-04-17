@@ -31,10 +31,8 @@ func _ready():
 
 	# Hide the menu initially
 	hide()
-	
-	interaction_component.connect("escape_pressed", Callable(self, "_on_escape_pressed"))
-	interaction_component.connect("house_interacted", Callable(self, "_on_interacted"))
 
+	
 
 func _process(delta):
 	if can_place_building:
