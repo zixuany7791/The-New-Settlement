@@ -3,6 +3,10 @@ class_name BuildingMenu
 # Signal emitted when a building is selected
 signal building_selected(building_scene)
 
+@onready var player_camera = get_node("../trunk/CharacterBody2D/Camera2D")  # Player's camera
+@onready var map_camera = get_node("../MapCamera")  # Map-view camera
+@onready var player = get_node("../trunk/CharacterBody2D/")
+
 # List of available buildings
 var buildings = [
 	{"name": "House", "cost": 50, "scene": preload("res://Buildings/house/house.tscn")},
@@ -28,7 +32,9 @@ func _ready():
 		btn.custom_minimum_size = Vector2(200, 100)
 		btn.connect("pressed", Callable(self, "_on_building_selected").bind(building["scene"]))
 		container.add_child(btn)
-
+	
+	if map_camera:
+		player_camera.make_current()  # Enable the player's camera
 	# Hide the menu initially
 	hide()
 
@@ -98,7 +104,26 @@ func cancel_building_placement():
 		building_preview.queue_free()
 		building_preview = null
 
-
+func disable_player_movement():
+	player.set_interacting_state(true)
+func enable_player_movement():
+	player.set_interacting_state(false)
+func switch_to_map_camera():
+	if map_camera:
+		map_camera.make_current()
+func switch_to_player_camera():
+	if map_camera:
+		player_camera.make_current()
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("open_menu"):
+		disable_player_movement()
+		switch_to_map_camera()
+		show()
+	if event.is_action_pressed("escape"):
+		enable_player_movement()
+		switch_to_player_camera()
+		cancel_building_placement()
+		hide()
 
 
 	
