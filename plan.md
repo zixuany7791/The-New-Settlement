@@ -9,15 +9,17 @@
 
 #### MVP (4/21)
 
-- [ ] Menu for buildings (Zixuan+Benjamin deadline: 3/02)
-  - [ ] Finalize a building model (William deadline: 2/26)
-- [ ] Create the world (Zixuan+William deadline: 3/16)
-  - [ ] Finalize a character model (William deadline: 2/23)
-  - [ ] Design a map for the player to place buildings (Zixuan+Benjamin+William deadline: 3/09)
-  - [ ] Have boundaries that the player cannot cross (Benjamin deadline: 3/16)
+- [ x] Menu for buildings (Zixuan+Benjamin deadline: 3/02)
+  - [ x] Finalize a building model (William deadline: 2/26)
+- [ x] Create the world (Zixuan+William deadline: 3/16)
+  - [x ] Finalize a character model (William deadline: 2/23)
+  - [x ] Design a map for the player to place buildings (Zixuan+Benjamin+William deadline: 3/09)
+  - [x ] Have boundaries that the player cannot cross (William deadline: 3/16)
 - [ ] Gameplay (Zixuan+Benjamin+William: 4/21)
-  - [ ] Economy system
-	- [ ] Each building generates some passive money (TAX)
+  - [ x] Economy system
+	- [x ] Each building generates some resources (TAX)
+  	- [] Fix bug with houses giving null error when interacting
+   	- [ ] Add a population system that limits the amount of building that can be built
 
 #### Beyond MVP(May???)
 
@@ -26,7 +28,6 @@
 - [ ] Center the buildings so that the building is placed where the mouse is clicked
 - [ ] Write a story that opens when the player starts
 - [ ] Having a menu for starting the game when opened
-- [ ] Add a population system that limits the amount of building that can be built
 
 
 <!-- EXAMPLE
