@@ -21,7 +21,6 @@ func enable_player_movement():
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and can_interact:
 		interact_label.hide()
-		print(interact_label.visible)
 		if current_interactions:
 			disable_player_movement()
 			current_interactions[0].interact()
