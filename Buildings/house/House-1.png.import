@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://budr0luay1lwa"
-path="res://.godot/imported/Grass_Middle.png-42cc0dc727868b4a2ae1667f7e15392d.ctex"
+uid="uid://bfaig8ae2t1va"
+path="res://.godot/imported/House-1.png-54d2aa9741f23d44528c654a72075217.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Buildings/Cute_Fantasy_Free/Tiles/Grass_Middle.png"
-dest_files=["res://.godot/imported/Grass_Middle.png-42cc0dc727868b4a2ae1667f7e15392d.ctex"]
+source_file="res://Buildings/house/House-1.png"
+dest_files=["res://.godot/imported/House-1.png-54d2aa9741f23d44528c654a72075217.ctex"]
 
 [params]
 

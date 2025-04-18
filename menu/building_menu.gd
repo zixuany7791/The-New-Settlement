@@ -6,8 +6,8 @@ signal building_selected(building_scene)
 @onready var interaction_component = get_node("../trunk/CharacterBody2D/Interaction Component")  # Adjust the path based on your scene tree
 # List of available buildings
 var buildings = [
-	{"name": "House", "cost": 50, "scene": preload("res://Buildings/house.tscn")},
-	{"name": "Lumberyard", "cost": 50, "scene": preload("res://Buildings/LumberYard.tscn")},
+	{"name": "House", "cost": 50, "scene": preload("res://Buildings/house/house.tscn")},
+	{"name": "Lumberyard", "cost": 50, "scene": preload("res://Buildings/lumberyard/LumberYard.tscn")},
 ]
 
 

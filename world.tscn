@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b5vc4tsyi5dyr" path="res://Tiles/Beach_Tile.png" id="1_emlw3"]
 [ext_resource type="PackedScene" uid="uid://bhglro57ltxjk" path="res://Character/character_body_2d.tscn" id="1_s5q8u"]
 [ext_resource type="Texture2D" uid="uid://4icbhownnug" path="res://Tiles/Cliff_Tile.png" id="2_7xf57"]
-[ext_resource type="PackedScene" uid="uid://dk7gcp53op27c" path="res://Buildings/house.tscn" id="3_gwd6m"]
+[ext_resource type="PackedScene" uid="uid://dk7gcp53op27c" path="res://Buildings/house/house.tscn" id="3_gwd6m"]
 [ext_resource type="Texture2D" uid="uid://dqsxryknwfaqg" path="res://Tiles/Grass_Middle.png" id="3_nqo82"]
 [ext_resource type="Texture2D" uid="uid://c7v8cqjxxgj2y" path="res://Tiles/Path_Middle.png" id="4_k6aft"]
 [ext_resource type="Texture2D" uid="uid://d0eimtr5xp625" path="res://Tiles/Path_Tile.png" id="5_b3t0y"]

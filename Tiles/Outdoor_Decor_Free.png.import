@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1bo0ntko1vt5"
-path="res://.godot/imported/Fences.png-3647d91328688e11b7cf5f48cc954332.ctex"
+uid="uid://cac2trcuvog0v"
+path="res://.godot/imported/Outdoor_Decor_Free.png-5a272ae2e784c4ee7adb174c2e1e7f6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Buildings/Cute_Fantasy_Free/Outdoor decoration/Fences.png"
-dest_files=["res://.godot/imported/Fences.png-3647d91328688e11b7cf5f48cc954332.ctex"]
+source_file="res://Tiles/Outdoor_Decor_Free.png"
+dest_files=["res://.godot/imported/Outdoor_Decor_Free.png-5a272ae2e784c4ee7adb174c2e1e7f6f.ctex"]
 
 [params]
 
