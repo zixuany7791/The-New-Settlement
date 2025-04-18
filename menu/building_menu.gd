@@ -3,7 +3,6 @@ class_name BuildingMenu
 # Signal emitted when a building is selected
 signal building_selected(building_scene)
 
-@onready var interaction_component = get_node("../trunk/CharacterBody2D/Interaction Component")  # Adjust the path based on your scene tree
 # List of available buildings
 var buildings = [
 	{"name": "House", "cost": 50, "scene": preload("res://Buildings/house/house.tscn")},
@@ -26,6 +25,7 @@ func _ready():
 	for building in buildings:
 		var btn = Button.new()
 		btn.text = building["name"] + " ($" + str(building["cost"]) + ")"
+		btn.custom_minimum_size = Vector2(200, 100)
 		btn.connect("pressed", Callable(self, "_on_building_selected").bind(building["scene"]))
 		container.add_child(btn)
 
@@ -92,12 +92,6 @@ func _physics_process(delta):
 	if can_place_building and Input.is_action_just_pressed("RMC"):
 		cancel_building_placement()
 
-
-func _on_interacted():
-	show()
-func _on_escape_pressed():
-	cancel_building_placement()
-	hide()
 func cancel_building_placement():
 	can_place_building = false
 	if is_instance_valid(building_preview):

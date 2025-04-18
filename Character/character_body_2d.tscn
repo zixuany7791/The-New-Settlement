@@ -35,10 +35,10 @@ monitorable = false
 shape = SubResource("CircleShape2D_mudi0")
 
 [node name="InteractLabel" type="Label" parent="Interaction Component"]
-offset_left = -152.0
-offset_top = -48.0
-offset_right = 146.0
-offset_bottom = -25.0
+offset_left = -144.0
+offset_top = -64.0
+offset_right = 154.0
+offset_bottom = -41.0
 size_flags_horizontal = 4
 size_flags_vertical = 1
 text = "test"
