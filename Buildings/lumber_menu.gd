@@ -1,7 +1,8 @@
 extends Control
 
 
-@onready var population_label = $Label
+@onready var population_label = $VBoxContainer/MarginContainer/population
+@onready var production_label = $VBoxContainer/MarginContainer2/production
 @onready var assign_button = $Button
 @onready var ui_panel = self
 
@@ -20,5 +21,8 @@ func assign_worker():
 		ResourceManager.resources["population"] -= 1
 		ResourceManager.add_production("wood", wood_per_worker)
 		population_label.text = "Workforce Population: "  + str(assigned_workers) + "/" + str(max_workers)
+		production_label.text = "Production rate: " + str(assigned_workers)+"/" + "s"
 	else:
 		print("No available population or max workers reached")
+
+	

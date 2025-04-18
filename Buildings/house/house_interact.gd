@@ -5,9 +5,9 @@ extends Area2D
 
 #@onready var menu = $"../../../Popupmenu"
 
+# House function:
 
-
-		
+# People live in there, duh.
 
 func interact():
 	print("works")

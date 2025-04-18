@@ -2,8 +2,8 @@ extends Node
 
 var resources = {
 	"wood": 0,
-	"population": 3,
-	"TotalPop": 3,
+	"population": 6,
+	"TotalPop": 6,
 }
 
 var production_rates = {
