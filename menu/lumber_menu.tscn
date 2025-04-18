@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bcsl4blehcr6f"]
 
-[ext_resource type="Script" path="res://menu/lumber_menu.gd" id="1_peatv"]
+[ext_resource type="Script" path="res://Buildings/lumber_menu.gd" id="1_peatv"]
 
 [node name="Lumber_menu" type="Panel"]
 anchors_preset = 8
