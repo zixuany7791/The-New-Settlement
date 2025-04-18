@@ -3,11 +3,13 @@ extends Node
 var resources = {
 	"wood": 0,
 	"population": 3,
+	"TotalPop": 3,
 }
 
 var production_rates = {
 	"wood": 0,
 	"population": 0,
+	"TotalPop": 3,
 }
 
 var production_interval := 1.0
