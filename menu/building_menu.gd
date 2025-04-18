@@ -92,12 +92,6 @@ func _physics_process(delta):
 	if can_place_building and Input.is_action_just_pressed("RMC"):
 		cancel_building_placement()
 
-
-func _on_interacted():
-	show()
-func _on_escape_pressed():
-	cancel_building_placement()
-	hide()
 func cancel_building_placement():
 	can_place_building = false
 	if is_instance_valid(building_preview):
