@@ -1,23 +1,21 @@
 [gd_scene load_steps=7 format=3 uid="uid://c0kjf8bkdn3au"]
 
 [ext_resource type="Script" path="res://Buildings/lumberyard/lumber_yard.gd" id="1_io0hk"]
-[ext_resource type="Texture2D" uid="uid://db0gvfc4sa6ik" path="res://icon.svg" id="2_sqkh1"]
 [ext_resource type="Script" path="res://Buildings/lumberyard/lumber_interact.gd" id="3_2wws0"]
+[ext_resource type="Texture2D" uid="uid://b8r60m7c3sx3x" path="res://Buildings/lumberyard/LumberYard.png" id="4_cmiab"]
 [ext_resource type="PackedScene" uid="uid://bcsl4blehcr6f" path="res://menu/lumber_menu.tscn" id="4_evvmc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ilbw"]
-size = Vector2(128, 128)
+size = Vector2(120, 68)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6m76p"]
-radius = 88.3629
+radius = 82.0061
 
 [node name="LumberYard" type="StaticBody2D"]
 script = ExtResource("1_io0hk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_sqkh1")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 30)
 shape = SubResource("RectangleShape2D_7ilbw")
 
 [node name="Lumber_interact" type="Area2D" parent="."]
@@ -26,6 +24,7 @@ collision_mask = 0
 script = ExtResource("3_2wws0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lumber_interact"]
+position = Vector2(0, 32)
 shape = SubResource("CircleShape2D_6m76p")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -35,3 +34,8 @@ offset_left = -200.0
 offset_top = -188.0
 offset_right = 200.0
 offset_bottom = 212.0
+
+[node name="LumberYard" type="Sprite2D" parent="."]
+position = Vector2(-4, -2)
+scale = Vector2(0.421875, 0.421875)
+texture = ExtResource("4_cmiab")
