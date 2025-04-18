@@ -50,7 +50,7 @@ func _on_building_selected(building_scene):
 	if selected_building_scene:
 		building_preview = selected_building_scene.instantiate()
 		building_preview.modulate = Color(1, 1, 1, 0.5)  # Make it semi-transparent
-		get_parent().get_parent().get_parent().add_child(building_preview)
+		get_node("../trunk").add_child(building_preview)
 		preview_visible = true
 	
 
@@ -75,7 +75,7 @@ func place_building(pos):
 		instance.position = pos
 		instance.scale = Vector2(0.33, 0.33)
 		print("Placing building at:", instance.position)
-		get_parent().get_parent().get_parent().add_child(instance)
+		get_node("../trunk").add_child(instance)
 		placed_buildings[instance.position] = instance
 		print(placed_buildings)
 		

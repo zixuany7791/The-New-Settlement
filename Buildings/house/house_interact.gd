@@ -11,7 +11,6 @@ func _ready():
 	# Ensure the map camera is not active initially
 	if map_camera:
 		player_camera.make_current()  # Enable the player's camera
-		
 func switch_to_map_camera():
 	if map_camera:
 		map_camera.make_current()
