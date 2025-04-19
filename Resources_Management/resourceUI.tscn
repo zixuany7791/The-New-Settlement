@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://31m8oxv4yxxu"]
+
+[ext_resource type="Script" path="res://resource_menu.gd" id="1_rwem2"]
+[ext_resource type="Texture2D" uid="uid://bv48h74x6d4es" path="res://Resources_Management/Population_Icon.png" id="1_v2yud"]
+[ext_resource type="Texture2D" uid="uid://sees53skenjk" path="res://Resources_Management/Wood_Icon.png" id="2_wb8ne"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -832.0
+offset_bottom = 648.0
+grow_horizontal = 0
+script = ExtResource("1_rwem2")
+
+[node name="Wood" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 512.0
+offset_right = 640.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Wood"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Wood/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_wb8ne")
+expand_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Wood"]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 128.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Wood/MarginContainer2"]
+layout_mode = 2
+text = "1231"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -48.0
+grow_horizontal = 0
+grow_vertical = 0
+icon_alignment = 1
+
+[node name="Population" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Population"]
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Population/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_v2yud")
+expand_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Population"]
+layout_mode = 2
+offset_left = 40.0
+offset_right = 128.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Population/MarginContainer2"]
+layout_mode = 2
+text = "1231"
+vertical_alignment = 1

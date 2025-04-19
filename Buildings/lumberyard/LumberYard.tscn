@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcsl4blehcr6f" path="res://menu/lumber_menu.tscn" id="4_evvmc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ilbw"]
-size = Vector2(120, 68)
+size = Vector2(136, 68)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6m76p"]
 radius = 82.0061
@@ -19,6 +19,7 @@ position = Vector2(-4, 30)
 shape = SubResource("RectangleShape2D_7ilbw")
 
 [node name="Lumber_interact" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("3_2wws0")

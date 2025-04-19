@@ -2,14 +2,14 @@ extends Node
 
 var resources = {
 	"wood": 0,
+	"unemployed": 6,
 	"population": 6,
-	"TotalPop": 6,
 }
 
 var production_rates = {
 	"wood": 0,
+	"unemployed": 0,
 	"population": 0,
-	"TotalPop": 0,
 }
 
 var production_interval := 1.0
