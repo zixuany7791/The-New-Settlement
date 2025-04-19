@@ -1,43 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj0t1pbo1xgc4"]
+[gd_scene load_steps=2 format=3 uid="uid://bj0t1pbo1xgc4"]
 
 [ext_resource type="Script" path="res://menu/building_menu.gd" id="1_ququp"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bw44o"]
-
 [node name="Building_Menu" type="Panel"]
 anchors_preset = -1
-anchor_left = -0.049
-anchor_right = 0.049
-anchor_bottom = 1.222
-offset_left = 56.448
-offset_right = -56.448
-offset_bottom = -791.856
+anchor_left = -0.111111
+anchor_right = 0.111111
+anchor_bottom = 1.23457
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bw44o")
 script = ExtResource("1_ququp")
+metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="."]
-anchors_preset = 0
-offset_left = -128.0
-offset_right = 128.0
-offset_bottom = 800.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.977
-offset_right = 1.0
-offset_bottom = 16.192
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.992
-anchor_bottom = 0.997
-offset_right = 0.0319977
-offset_bottom = -0.193176
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

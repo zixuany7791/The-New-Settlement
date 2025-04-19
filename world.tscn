@@ -426,10 +426,10 @@ position_smoothing_speed = 10.0
 [node name="Popupmenu" parent="TileMapLayer" instance=ExtResource("12_xgonp")]
 z_index = 4
 y_sort_enabled = true
-offset_left = -528.0
+offset_left = -656.0
 offset_top = -400.0
-offset_right = -528.0
-offset_bottom = -400.0
+offset_right = -400.0
+offset_bottom = 400.0
 
 [node name="MapCamera" type="Camera2D" parent="TileMapLayer"]
 zoom = Vector2(0.8, 0.8)

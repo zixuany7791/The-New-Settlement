@@ -9,8 +9,8 @@ signal building_selected(building_scene)
 
 # List of available buildings
 var buildings = [
-	{"name": "House", "cost": 50, "scene": preload("res://Buildings/house/house.tscn")},
-	{"name": "Lumberyard", "cost": 50, "scene": preload("res://Buildings/lumberyard/LumberYard.tscn")},
+	{"name": "House", "cost": 10, "scene": preload("res://Buildings/house/house.tscn")},
+	{"name": "Lumberyard", "cost": 10, "scene": preload("res://Buildings/lumberyard/LumberYard.tscn")},
 ]
 
 
@@ -28,7 +28,7 @@ func _ready():
 	var container = $Control/Panel/VBoxContainer
 	for building in buildings:
 		var btn = Button.new()
-		btn.text = building["name"] + " ($" + str(building["cost"]) + ")"
+		btn.text = building["name"] + " (" +str(building["cost"]) + " wood)"
 		btn.custom_minimum_size = Vector2(200, 100)
 		btn.connect("pressed", Callable(self, "_on_building_selected").bind(building["scene"]))
 		container.add_child(btn)
@@ -45,19 +45,20 @@ func _process(delta):
 		update_building_preview()
 
 func _on_building_selected(building_scene):
-
-	selected_building_scene = building_scene
-	can_place_building = true
-	
-	if is_instance_valid(building_preview):
-		building_preview.queue_free()
-		building_preview = null
-	# Create preview instance if it doesn't exist
-	if selected_building_scene:
-		building_preview = selected_building_scene.instantiate()
-		building_preview.modulate = Color(1, 1, 1, 0.5)  # Make it semi-transparent
-		get_parent().get_parent().get_parent().add_child(building_preview)
-		preview_visible = true
+# if the player doesn't have enough wood, 
+	if not ResourceManager.resources["wood"] < 10:
+		selected_building_scene = building_scene
+		can_place_building = true
+		
+		if is_instance_valid(building_preview):
+			building_preview.queue_free()
+			building_preview = null
+		# Create preview instance if it doesn't exist
+		if selected_building_scene:
+			building_preview = selected_building_scene.instantiate()
+			building_preview.modulate = Color(1, 1, 1, 0.5)  # Make it semi-transparent
+			get_parent().get_parent().get_parent().add_child(building_preview)
+			preview_visible = true
 	
 
 func update_building_preview():
@@ -84,6 +85,7 @@ func place_building(pos):
 		get_parent().get_parent().get_parent().add_child(instance)
 		placed_buildings[instance.position] = instance
 		print(placed_buildings)
+		ResourceManager.resources["wood"] -= 10
 		
 		# Don't disable placement after placing, keep the preview active
 	else:
@@ -114,16 +116,22 @@ func switch_to_map_camera():
 func switch_to_player_camera():
 	if map_camera:
 		player_camera.make_current()
+
+func open_menu():
+	disable_player_movement()
+	switch_to_map_camera()
+	show()
+func close_menu():
+	enable_player_movement()
+	switch_to_player_camera()
+	cancel_building_placement()
+	hide()
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_menu"):
-		disable_player_movement()
-		switch_to_map_camera()
-		show()
+		open_menu()
 	if event.is_action_pressed("escape"):
-		enable_player_movement()
-		switch_to_player_camera()
-		cancel_building_placement()
-		hide()
+		close_menu()
+
 
 
 	

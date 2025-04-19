@@ -31,7 +31,7 @@ func assign_worker():
 func remove_worker():
 	if assigned_workers > 0:
 		assigned_workers -= 1
-		ResourceManager.resources["population"] += 1
+		ResourceManager.resources["unemployed"] += 1
 		ResourceManager.add_production("wood", -(wood_per_worker))
 		population_label.text = "Workforce Population: "  + str(assigned_workers) + "/" + str(max_workers)
 		production_label.text = "Production rate: " + str(assigned_workers)+"/" + "s"
