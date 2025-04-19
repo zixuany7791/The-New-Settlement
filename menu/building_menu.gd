@@ -45,20 +45,25 @@ func _process(delta):
 		update_building_preview()
 
 func _on_building_selected(building_scene):
-# if the player doesn't have enough wood, 
-	if not ResourceManager.resources["wood"] < 10:
-		selected_building_scene = building_scene
-		can_place_building = true
-		
-		if is_instance_valid(building_preview):
-			building_preview.queue_free()
-			building_preview = null
-		# Create preview instance if it doesn't exist
-		if selected_building_scene:
-			building_preview = selected_building_scene.instantiate()
-			building_preview.modulate = Color(1, 1, 1, 0.5)  # Make it semi-transparent
-			get_parent().get_parent().get_parent().add_child(building_preview)
-			preview_visible = true
+	for building in buildings:
+		if building["scene"] == building_scene:
+			var cost = building["cost"]
+			if ResourceManager.resources["wood"] >= cost:
+				selected_building_scene = building_scene
+				can_place_building = true
+
+				if is_instance_valid(building_preview):
+					building_preview.queue_free()
+					building_preview = null
+
+				# Create preview instance
+				building_preview = selected_building_scene.instantiate()
+				building_preview.modulate = Color(1, 1, 1, 0.5)
+				get_parent().get_parent().get_parent().add_child(building_preview)
+				preview_visible = true
+			else:
+				print("Not enough wood to select this building.")
+			break
 	
 
 func update_building_preview():
@@ -69,27 +74,35 @@ func update_building_preview():
 		
 
 func place_building(pos):
-	if selected_building_scene:
-		var num = 999
-		for building in placed_buildings:
-			if building.distance_to(pos) < num:
-				num = building.distance_to(pos)
-			if building.distance_to(pos) < 85:
-				print("You are trying to place the building at ", pos)
-				print(building.distance_to(pos))
-				return
-		var instance = selected_building_scene.instantiate()
-		instance.position = pos
-		instance.scale = Vector2(0.33, 0.33)
-		print("Placing building at:", instance.position)
-		get_parent().get_parent().get_parent().add_child(instance)
-		placed_buildings[instance.position] = instance
-		print(placed_buildings)
-		ResourceManager.resources["wood"] -= 10
-		
-		# Don't disable placement after placing, keep the preview active
-	else:
+	if not selected_building_scene:
 		print("No building selected!")
+		return
+
+	# Get cost of the selected building
+	var cost = 0
+	for building in buildings:
+		if building["scene"] == selected_building_scene:
+			cost = building["cost"]
+			break
+
+	if ResourceManager.resources["wood"] < cost:
+		print("Not enough wood to place this building.")
+		return
+
+	# Proximity check
+	for building in placed_buildings:
+		if building.distance_to(pos) < 85:
+			print("Too close to another building at", pos)
+			return
+
+	# Place the building
+	var instance = selected_building_scene.instantiate()
+	instance.position = pos
+	instance.scale = Vector2(0.33, 0.33)
+	get_parent().get_parent().get_parent().add_child(instance)
+	placed_buildings[instance.position] = instance
+	ResourceManager.resources["wood"] -= cost
+	print("Placed at:", instance.position, "Wood left:", ResourceManager.resources["wood"])
 
 func _physics_process(delta):
 	if can_place_building and Input.is_action_just_pressed("LMC"):
