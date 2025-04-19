@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://btfxkm37edkdp"]
+[gd_scene load_steps=37 format=4 uid="uid://btfxkm37edkdp"]
 
 [ext_resource type="Texture2D" uid="uid://b5vc4tsyi5dyr" path="res://Tiles/Beach_Tile.png" id="1_emlw3"]
 [ext_resource type="PackedScene" uid="uid://bhglro57ltxjk" path="res://Character/character_body_2d.tscn" id="1_s5q8u"]
@@ -9,8 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://dsl3hfkw3kb0w" path="res://Tiles/Water_Middle.png" id="6_yg8ji"]
 [ext_resource type="Texture2D" uid="uid://c0bfchtlmef65" path="res://Tiles/Water_Tile.png" id="7_mpjvs"]
 [ext_resource type="Texture2D" uid="uid://bur1saajwv4cq" path="res://Tiles/Cliff_Tile-Photoroom.png" id="11_6l5qt"]
+[ext_resource type="Script" path="res://resource_menu.gd" id="12_8jjne"]
 [ext_resource type="PackedScene" uid="uid://bj0t1pbo1xgc4" path="res://menu/building_menu.tscn" id="12_xgonp"]
 [ext_resource type="Texture2D" uid="uid://dr1jwmvpxji7r" path="res://Tiles/4_Seasons_Trees.png" id="12_yvvtp"]
+[ext_resource type="Texture2D" uid="uid://bv48h74x6d4es" path="res://Resources_Management/Population_Icon.png" id="13_harur"]
+[ext_resource type="Texture2D" uid="uid://sees53skenjk" path="res://Resources_Management/Wood_Icon.png" id="14_y8xw2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8o24v"]
 texture = ExtResource("1_emlw3")
@@ -316,6 +319,13 @@ sources/1 = SubResource("TileSetAtlasSource_7gok4")
 sources/0 = SubResource("TileSetAtlasSource_x4roj")
 sources/11 = SubResource("TileSetAtlasSource_2x0bb")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6yrk"]
+bg_color = Color(0.427493, 0.427493, 0.427493, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -361,3 +371,42 @@ visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(387, -388, 388, 262, 316, 261, 315, 232, 249, 230, 248, 181, 184, 181, 184, 171, 179, 168, 94, 168, 90, 170, 89, 180, -72, 183, -73, 230, -244, 232, -247, 386, -387, 387, -388, -387, 369, -392, 368, -486, 96, -523, -366, -520, -544, -428, -543, -216, -559, -21, -533, 394, -309, 509, 12, 555, 372, 511, 484, 307, 593, 35, 572, -195, 518, -375, 470, -495, 396, -505, 371, -416, 371, -397)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_scale = 0.001
+
+[node name="ResourceMenu" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -326.0
+offset_bottom = 162.0
+grow_horizontal = 0
+theme_override_constants/separation = 4
+alignment = 1
+script = ExtResource("12_8jjne")
+
+[node name="Population" type="PanelContainer" parent="CanvasLayer/ResourceMenu"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b6yrk")
+
+[node name="Population Icon" type="TextureRect" parent="CanvasLayer/ResourceMenu/Population"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+texture = ExtResource("13_harur")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/ResourceMenu/Population"]
+layout_mode = 2
+text = "10
+"
+
+[node name="wood" type="PanelContainer" parent="CanvasLayer/ResourceMenu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/ResourceMenu/wood"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ResourceMenu/wood"]
+layout_mode = 2
+texture = ExtResource("14_y8xw2")
