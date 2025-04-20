@@ -15,11 +15,12 @@ radius = 82.0061
 script = ExtResource("1_io0hk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 30)
+visible = false
+y_sort_enabled = true
+position = Vector2(214, 25)
 shape = SubResource("RectangleShape2D_7ilbw")
 
 [node name="Lumber_interact" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("3_2wws0")
@@ -37,6 +38,9 @@ offset_right = 200.0
 offset_bottom = 212.0
 
 [node name="LumberYard" type="Sprite2D" parent="."]
-position = Vector2(-4, -2)
-scale = Vector2(0.421875, 0.421875)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_cmiab")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-147, 0)
+polygon = PackedVector2Array(73, 80, 73, 72, 79.5465, 62.1802, 93, 42, 93, 31, 201, 33, 201, 40, 205, 65, 220, 79)

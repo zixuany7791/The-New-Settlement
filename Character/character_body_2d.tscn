@@ -32,7 +32,12 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Component/InteractionArea"]
+position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_mudi0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interaction Component/InteractionArea"]
+position = Vector2(48, 4)
+polygon = PackedVector2Array(-58, -24, -38, -24, -38, -21, -36, -21, -36, -19, -33, -19, -33, -14, -31, -14, -30, -7, -65, -5, -65, -14, -63, -14, -63, -19, -61, -19, -60, -21, -58, -21)
 
 [node name="InteractLabel" type="Label" parent="Interaction Component"]
 offset_left = -144.0
