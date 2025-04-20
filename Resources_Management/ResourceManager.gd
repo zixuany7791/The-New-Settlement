@@ -1,7 +1,7 @@
 extends Node
 
 var resources = {
-	"wood": 20,
+	"wood": 120,
 	"unemployed": 6,
 	"population": 6,
 }
@@ -30,7 +30,7 @@ func _process(delta):
 func produce_resources():
 	for res in production_rates:
 		resources[res] += production_rates[res]
-		print("Produced %d %s. Total: %d" % [production_rates[res], res, resources[res]])
+		#print("Produced %d %s. Total: %d" % [production_rates[res], res, resources[res]])
 		
 func add_production(resource_name: String, amount: int):
 	if production_rates.has(resource_name):

@@ -9,7 +9,15 @@ var can_interact := true
 
 
 func _ready():
+	var tree_tile_ids = [2]  # Replace with your actual tree tile IDs
+	var tree_positions = []
+	print($"../../../".get_used_cells().size())
+	for pos in $"../../".get_used_cells():  # 0 = layer index
+		var tile_id = $"../../".get_cell_source_id(pos)
+		if tile_id in tree_tile_ids:
+			tree_positions.append(pos)
 
+	print(tree_positions)  # Now you have all the tree positions
 	interact_label.hide()
 
 	

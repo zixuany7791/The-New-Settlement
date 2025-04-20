@@ -36,6 +36,7 @@ func _ready():
 	if map_camera:
 		player_camera.make_current()  # Enable the player's camera
 	# Hide the menu initially
+	
 	hide()
 
 	
@@ -43,6 +44,7 @@ func _ready():
 func _process(delta):
 	if can_place_building:
 		update_building_preview()
+	
 
 func _on_building_selected(building_scene):
 	for building in buildings:
@@ -61,8 +63,8 @@ func _on_building_selected(building_scene):
 				building_preview.modulate = Color(1, 1, 1, 0.5)
 				get_parent().get_parent().get_parent().add_child(building_preview)
 				preview_visible = true
-			else:
-				print("Not enough wood to select this building.")
+			#else:
+				#print("Not enough wood to select this building.")
 			break
 	
 
@@ -71,11 +73,13 @@ func update_building_preview():
 		var mouse_position = get_global_mouse_position()
 		building_preview.position = mouse_position
 		building_preview.scale = Vector2(0.33, 0.33)
+	if ResourceManager.resources["wood"] < 10:
+		cancel_building_placement()
 		
 
 func place_building(pos):
 	if not selected_building_scene:
-		print("No building selected!")
+		#print("No building selected!")
 		return
 
 	# Get cost of the selected building
@@ -86,13 +90,13 @@ func place_building(pos):
 			break
 
 	if ResourceManager.resources["wood"] < cost:
-		print("Not enough wood to place this building.")
+		#print("Not enough wood to place this building.")
 		return
 
 	# Proximity check
 	for building in placed_buildings:
 		if building.distance_to(pos) < 85:
-			print("Too close to another building at", pos)
+			#print("Too close to another building at", pos)
 			return
 
 	# Place the building
@@ -102,7 +106,7 @@ func place_building(pos):
 	get_parent().get_parent().get_parent().add_child(instance)
 	placed_buildings[instance.position] = instance
 	ResourceManager.resources["wood"] -= cost
-	print("Placed at:", instance.position, "Wood left:", ResourceManager.resources["wood"])
+	#print("Placed at:", instance.position, "Wood left:", ResourceManager.resources["wood"])
 
 func _physics_process(delta):
 	if can_place_building and Input.is_action_just_pressed("LMC"):
