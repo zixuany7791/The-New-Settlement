@@ -20,8 +20,7 @@ var selected_building_scene : PackedScene
 var building_preview : Node2D  # This will hold our preview instance
 var preview_visible := false
 
-var placed_buildings = {}
-
+var placed_obstacles = {}
 
 func _ready():
 	# Add buttons for each building in the Popup menu
@@ -37,6 +36,13 @@ func _ready():
 		player_camera.make_current()  # Enable the player's camera
 	# Hide the menu initially
 	
+	var tree_tile_ids = [2]  # Replace with your actual tree tile IDs
+	for pos in $"../trunk".get_used_cells():  # 0 = layer index
+		var tile_id = $"../trunk".get_cell_source_id(pos)
+		if tile_id in tree_tile_ids:
+			placed_obstacles[pos] = "trees"
+		
+	#print(placed_obstacles)
 	hide()
 
 	
@@ -94,19 +100,27 @@ func place_building(pos):
 		return
 
 	# Proximity check
-	for building in placed_buildings:
-		if building.distance_to(pos) < 85:
-			#print("Too close to another building at", pos)
+	for building in placed_obstacles:
+		if building.distance_to($"../../TileMapLayer".local_to_map(
+		$"../../TileMapLayer".to_local(
+			$"../../TileMapLayer/MapCamera".get_screen_transform().affine_inverse() 
+			* get_viewport().get_mouse_position()))) < 4:
+			print("Too close to another building at", pos)
 			return
-
+			
+	
 	# Place the building
 	var instance = selected_building_scene.instantiate()
 	instance.position = pos
 	instance.scale = Vector2(0.33, 0.33)
 	get_parent().get_parent().get_parent().add_child(instance)
-	placed_buildings[instance.position] = instance
+	placed_obstacles[get_building_position()] = instance
 	ResourceManager.resources["wood"] -= cost
+	#print(get_building_position())
+	#print(placed_obstacles)
 	#print("Placed at:", instance.position, "Wood left:", ResourceManager.resources["wood"])
+	
+	
 
 func _physics_process(delta):
 	if can_place_building and Input.is_action_just_pressed("LMC"):
@@ -148,7 +162,12 @@ func _input(event: InputEvent) -> void:
 		open_menu()
 	if event.is_action_pressed("escape"):
 		close_menu()
-
+		
+func get_building_position():
+	return $"../../TileMapLayer".local_to_map(
+		$"../../TileMapLayer".to_local(
+			$"../../TileMapLayer/MapCamera".get_screen_transform().affine_inverse() 
+			* get_viewport().get_mouse_position()))
 
 
 	

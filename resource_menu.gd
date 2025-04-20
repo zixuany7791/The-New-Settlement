@@ -9,12 +9,8 @@ func _ready():
 	button.pressed.connect(on_pressed)
 func _process(delta):
 	Population_Label.text = str(ResourceManager.resources["unemployed"])
-	#Wood_Label.text = str(ResourceManager.resources["wood"])
-	Wood_Label.text = str(
-	$"../../TileMapLayer".local_to_map($"../../TileMapLayer".to_local($"../../TileMapLayer/MapCamera".get_screen_transform().affine_inverse() * get_viewport().get_mouse_position())
-	))
+	Wood_Label.text = str(ResourceManager.resources["wood"])
+	
+
 func on_pressed():
-	if menu.visible:
-		menu.close_menu()
-	else:
-		menu.open_menu()
+	menu.open_menu()
