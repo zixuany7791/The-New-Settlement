@@ -12,6 +12,7 @@ var buildings = [
 	{"name": "House", "cost": 10, "scene": preload("res://Buildings/house/house.tscn")},
 	{"name": "Lumberyard", "cost": 10, "scene": preload("res://Buildings/lumberyard/LumberYard.tscn")},
 ]
+var selected_building : Dictionary
 
 
 # Variables for building placement
@@ -58,6 +59,7 @@ func _on_building_selected(building_scene):
 			var cost = building["cost"]
 			if ResourceManager.resources["wood"] >= cost:
 				selected_building_scene = building_scene
+				selected_building = building
 				can_place_building = true
 
 				if is_instance_valid(building_preview):
@@ -119,6 +121,8 @@ func place_building(pos):
 	get_parent().get_parent().get_parent().add_child(instance)
 	placed_obstacles[get_building_position()] = instance
 	ResourceManager.resources["wood"] -= cost
+	if selected_building["name"] == "House":
+		ResourceManager.resources["capacity"]+=5
 	
 	
 
