@@ -25,7 +25,6 @@ scale = Vector2(112.343, -5.00268)
 shape = SubResource("RectangleShape2D_ddhmt")
 
 [node name="House_interact" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("3_6ybvl")

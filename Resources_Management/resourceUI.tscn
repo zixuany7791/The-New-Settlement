@@ -9,15 +9,20 @@ layout_mode = 3
 anchor_left = 0.222222
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 0.000259399
+offset_right = 0.000244141
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rwem2")
 metadata/_edit_use_anchors_ = true
 
 [node name="Wood" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 512.0
-offset_right = 640.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -512.0
+offset_right = -384.0
 offset_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Wood"]
@@ -57,32 +62,63 @@ text = "Construction"
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Worker" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -320.0
+offset_right = -192.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Worker"]
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Worker/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_v2yud")
+expand_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Worker"]
+layout_mode = 2
+offset_left = 40.0
+offset_right = 128.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Worker/MarginContainer2"]
+layout_mode = 2
+text = "1231"
+vertical_alignment = 1
+
 [node name="Population" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -128.0
+offset_right = 3.0
 offset_bottom = 40.0
 grow_horizontal = 0
+scale = Vector2(0.978514, 0.96)
 
 [node name="MarginContainer" type="MarginContainer" parent="Population"]
-layout_mode = 2
-offset_right = 40.0
+layout_mode = 0
+offset_right = 41.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="Population/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("1_v2yud")
-expand_mode = 2
-
 [node name="MarginContainer2" type="MarginContainer" parent="Population"]
-layout_mode = 2
-offset_left = 40.0
-offset_right = 128.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_right = 0.3
+offset_left = -0.300003
+offset_right = 91.7
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Population/MarginContainer2"]
 layout_mode = 2
-text = "1231"
+text = "123"
 vertical_alignment = 1
