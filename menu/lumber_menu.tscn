@@ -21,7 +21,7 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -24.0
+offset_left = -31.0
 offset_bottom = 31.0
 grow_horizontal = 0
 text = "X"
@@ -83,3 +83,21 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Production Rate: 0 / s
 "
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -49.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Delete" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Remove Building"

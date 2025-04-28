@@ -8,6 +8,7 @@ extends Control
 @onready var exit_button = $exit
 @onready var interact_label = $"../../../Node2D/TileMapLayer/trunk/CharacterBody2D/Interaction Component/InteractLabel"
 @onready var player = $"../../../Node2D/TileMapLayer/trunk/CharacterBody2D"
+@onready var delete_button = $"MarginContainer/Delete"
 var assigned_workers := 0
 var max_workers := 5
 var wood_per_worker := 1
@@ -17,6 +18,7 @@ func _ready():
 	assign_button.pressed.connect(assign_worker)
 	remove_button.pressed.connect(remove_worker)
 	exit_button.pressed.connect(exit_pressed)
+	delete_button.pressed.connect(delete_pressed)
 
 func assign_worker():
 	if assigned_workers < max_workers and ResourceManager.resources["unemployed"] > 0:
@@ -47,3 +49,17 @@ func exit_pressed():
 	interact_label.show()
 	enable_player_movement()
 	hide()
+
+func delete_pressed():
+	ResourceManager.resources["unemployed"] += assigned_workers
+	ResourceManager.add_production("wood", -(assigned_workers*wood_per_worker))
+	if get_node("../../../Node2D/TileMapLayer/Popupmenu").placed_obstacles.has(get_node("../../../Node2D/TileMapLayer/Popupmenu").get_building_position(get_node("../..").position)):
+		get_node("../../../Node2D/TileMapLayer/Popupmenu").placed_obstacles.erase(get_node("../../../Node2D/TileMapLayer/Popupmenu").get_building_position(get_node("../..").position))
+	print(get_node("../../../Node2D/TileMapLayer/Popupmenu").placed_obstacles)
+	#for obstacle in get_node("../../../Node2D/TileMapLayer/Popupmenu").placed_obstacles:
+		#if obstacle == get_node("../../../Node2D/TileMapLayer/Popupmenu").get_building_position(get_node("../..").position):
+			
+	#print(get_node("../../../Node2D/TileMapLayer/Popupmenu").get_building_position(get_node("../..").position))
+	interact_label.show()
+	enable_player_movement()
+	get_node("../../").queue_free()
