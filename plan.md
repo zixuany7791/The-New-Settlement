@@ -23,11 +23,16 @@
 
 #### Beyond MVP(May???)
 
-- [ ] Make multiple buildings for different responsibilities
-- [ ] Create event to modify gameplay
-- [ ] Center the buildings so that the building is placed where the mouse is clicked
-- [ ] Write a story that opens when the player starts
-- [ ] Having a menu for starting the game when opened
+- [X]  being able to remove buildings
+- [ ] A menu for a house
+- [ ] A clearer guide that helps the player to understand what is going on 
+  - [ ] Make error message appear in the actual game
+  - [ ] Tooltip (Player hover on something and it will show a description of what it does)
+  - [ ] Notification system that tells the player stuff 
+- [ ] Population increase by boats coming to the colony 
+- [ ] Add shop near the shore to trade for food 
+- [ ] adding more buildings such as farms, mines so it's more diverse
+- [ ] Being able to remove trees so players can have more freedom placing where they wanted to.
 
 
 <!-- EXAMPLE
