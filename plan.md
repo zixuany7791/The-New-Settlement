@@ -9,30 +9,32 @@
 
 #### MVP (4/21)
 
-- [ x] Menu for buildings (Zixuan+Benjamin deadline: 3/02)
-  - [ x] Finalize a building model (William deadline: 2/26)
-- [ x] Create the world (Zixuan+William deadline: 3/16)
-  - [x ] Finalize a character model (William deadline: 2/23)
-  - [x ] Design a map for the player to place buildings (Zixuan+Benjamin+William deadline: 3/09)
-  - [x ] Have boundaries that the player cannot cross (William deadline: 3/16)
+- [x] Menu for buildings (Zixuan+Benjamin deadline: 3/02)
+  - [x] Finalize a building model (William deadline: 2/26)
+- [x] Create the world (Zixuan+William deadline: 3/16)
+  - [x] Finalize a character model (William deadline: 2/23)
+  - [x] Design a map for the player to place buildings (Zixuan+Benjamin+William deadline: 3/09)
+  - [x] Have boundaries that the player cannot cross (William deadline: 3/16)
 - [ ] Gameplay (Zixuan+Benjamin+William: 4/21)
-  - [ x] Economy system
-	- [x ] Each building generates some resources (TAX)
+  - [x] Economy system
+	- [x] Each building generates some resources (TAX)
   	- [] Fix bug with houses giving null error when interacting
    	- [ ] Add a population system that limits the amount of building that can be built
 
 #### Beyond MVP(May???)
 
-- [X]  being able to remove buildings
+- [X] Feature to remove buildings
 - [ ] A menu for a house
 - [ ] A clearer guide that helps the player to understand what is going on 
   - [ ] Make error message appear in the actual game
   - [ ] Tooltip (Player hover on something and it will show a description of what it does)
   - [ ] Notification system that tells the player stuff 
-- [ ] Population increase by boats coming to the colony 
+- [ ] Population increase by boats coming to the colony
+	- [ ] Boat design
+ 	- [ ] Random generator for amount of people coming in and how long each interval is
 - [ ] Add shop near the shore to trade for food 
-- [ ] adding more buildings such as farms, mines so it's more diverse
-- [ ] Being able to remove trees so players can have more freedom placing where they wanted to.
+- [ ] Add more buildings such as farms, mines so it's more diverse
+- [ ] Feature to remove trees so players can have more freedom placing where they wanted to.
 
 
 <!-- EXAMPLE
