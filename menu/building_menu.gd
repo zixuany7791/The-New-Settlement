@@ -12,6 +12,7 @@ var buildings = [
 	{"name": "House", "cost": 10, "scene": preload("res://Buildings/house/house.tscn")},
 	{"name": "Lumberyard", "cost": 10, "scene": preload("res://Buildings/lumberyard/LumberYard.tscn")},
 ]
+var selected_building : Dictionary
 
 
 # Variables for building placement
@@ -36,13 +37,12 @@ func _ready():
 		player_camera.make_current()  # Enable the player's camera
 	# Hide the menu initially
 	
-	var tree_tile_ids = [2]  # Replace with your actual tree tile IDs
-	for pos in $"../trunk".get_used_cells():  # 0 = layer index
+	var tree_tile_ids = [2]  # tree tile ID 
+	for pos in $"../trunk".get_used_cells(): 
 		var tile_id = $"../trunk".get_cell_source_id(pos)
 		if tile_id in tree_tile_ids:
 			placed_obstacles[pos] = "trees"
 		
-	#print(placed_obstacles)
 	hide()
 
 	
@@ -58,6 +58,7 @@ func _on_building_selected(building_scene):
 			var cost = building["cost"]
 			if ResourceManager.resources["wood"] >= cost:
 				selected_building_scene = building_scene
+				selected_building = building
 				can_place_building = true
 
 				if is_instance_valid(building_preview):
@@ -101,11 +102,8 @@ func place_building(pos):
 
 	# Proximity check
 	for building in placed_obstacles:
-		if building.distance_to($"../../TileMapLayer".local_to_map(
-		$"../../TileMapLayer".to_local(
-			$"../../TileMapLayer/MapCamera".get_screen_transform().affine_inverse() 
-			* get_viewport().get_mouse_position()))) < 4:
-			print("Too close to another building at", pos)
+		if building.distance_to(get_building_position(pos)) < 4 or get_building_position(pos).y > 9:
+			print("Sorry, you can't place it there at", pos)
 			return
 			
 	
@@ -114,11 +112,10 @@ func place_building(pos):
 	instance.position = pos
 	instance.scale = Vector2(0.33, 0.33)
 	get_parent().get_parent().get_parent().add_child(instance)
-	placed_obstacles[get_building_position()] = instance
+	placed_obstacles[get_building_position(pos)] = instance
 	ResourceManager.resources["wood"] -= cost
-	#print(get_building_position())
-	#print(placed_obstacles)
-	#print("Placed at:", instance.position, "Wood left:", ResourceManager.resources["wood"])
+	if selected_building["name"] == "House":
+		ResourceManager.resources["capacity"]+=5
 	
 	
 
@@ -163,11 +160,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape"):
 		close_menu()
 		
-func get_building_position():
+func get_building_position(pos: Vector2):
 	return $"../../TileMapLayer".local_to_map(
 		$"../../TileMapLayer".to_local(
-			$"../../TileMapLayer/MapCamera".get_screen_transform().affine_inverse() 
-			* get_viewport().get_mouse_position()))
+			pos))
 
 
 	
