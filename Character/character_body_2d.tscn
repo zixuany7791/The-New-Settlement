@@ -46,6 +46,7 @@ offset_right = 154.0
 offset_bottom = -41.0
 size_flags_horizontal = 4
 size_flags_vertical = 1
+text = "test"
 horizontal_alignment = 1
 
 [connection signal="area_entered" from="Interaction Component/InteractionArea" to="Interaction Component" method="_on_interaction_area_area_entered"]
