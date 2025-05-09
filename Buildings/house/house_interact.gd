@@ -3,13 +3,12 @@ extends Area2D
 @export var interact_name: String = "House"
 @export var is_interactable: bool = true
 
-#@onready var menu = $"../../../Popupmenu"
-
 # House function:
 
 # People live in there, duh.
-
+@onready var menu = $"../CanvasLayer/house_menu"
 func interact():
-	print("works")
+	menu.show()
+	
 func close_menu():
-	print("we closing menu ong")
+	menu.hide()

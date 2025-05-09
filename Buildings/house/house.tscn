@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk7gcp53op27c"]
+[gd_scene load_steps=7 format=3 uid="uid://dk7gcp53op27c"]
 
 [ext_resource type="Script" path="res://Buildings/house/house.gd" id="1_6p470"]
 [ext_resource type="Texture2D" uid="uid://bfaig8ae2t1va" path="res://Buildings/house/House-1.png" id="2_8whiv"]
 [ext_resource type="Script" path="res://Buildings/house/house_interact.gd" id="3_6ybvl"]
+[ext_resource type="Script" path="res://Buildings/house/house_menu.gd" id="4_trptb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddhmt"]
 size = Vector2(1.28179, 16.5037)
@@ -33,3 +34,34 @@ script = ExtResource("3_6ybvl")
 position = Vector2(3, 7)
 scale = Vector2(0.496, 0.5)
 shape = SubResource("CircleShape2D_10whr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="house_menu" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_trptb")
+
+[node name="delete" type="Button" parent="CanvasLayer/house_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -15.5
+offset_right = 69.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Remove Building"
