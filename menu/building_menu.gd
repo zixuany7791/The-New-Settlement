@@ -22,6 +22,7 @@ var building_preview : Node2D  # This will hold our preview instance
 var preview_visible := false
 
 var placed_obstacles = {}
+var placed_trees = {}
 
 func _ready():
 	# Add buttons for each building in the Popup menu
@@ -42,7 +43,7 @@ func _ready():
 	for pos in $"../trunk".get_used_cells(): 
 		var tile_id = $"../trunk".get_cell_source_id(pos)
 		if tile_id in tree_tile_ids:
-			placed_obstacles[pos] = "trees"
+			placed_trees[pos] = "trees"
 		
 	hide()
 	
@@ -105,6 +106,11 @@ func place_building(pos):
 	# Proximity check
 	for building in placed_obstacles:
 		if building.distance_to(get_building_position(pos)) < 4 or get_building_position(pos).y > 9:
+			label.text = "You cannot place the building there."
+			return
+		
+	for building in placed_trees:
+		if building.distance_to(get_building_position(pos)) < 2 or get_building_position(pos).y > 9:
 			label.text = "You cannot place the building there."
 			return
 			
