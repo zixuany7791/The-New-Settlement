@@ -6,7 +6,7 @@ signal building_selected(building_scene)
 @onready var player_camera = get_node("../trunk/CharacterBody2D/Camera2D")  # Player's camera
 @onready var map_camera = get_node("../MapCamera")  # Map-view camera
 @onready var player = get_node("../trunk/CharacterBody2D/")
-
+@onready var label = $"Control/Panel/Label"
 # List of available buildings
 var buildings = [
 	{"name": "House", "cost": 10, "scene": preload("res://Buildings/house/house.tscn")},
@@ -25,6 +25,7 @@ var placed_obstacles = {}
 
 func _ready():
 	# Add buttons for each building in the Popup menu
+
 	var container = $Control/Panel/VBoxContainer
 	for building in buildings:
 		var btn = Button.new()
@@ -44,6 +45,7 @@ func _ready():
 			placed_obstacles[pos] = "trees"
 		
 	hide()
+	
 
 	
 
@@ -70,8 +72,8 @@ func _on_building_selected(building_scene):
 				building_preview.modulate = Color(1, 1, 1, 0.5)
 				get_parent().get_parent().get_parent().add_child(building_preview)
 				preview_visible = true
-			#else:
-				#print("Not enough wood to select this building.")
+			else:
+				label.text = "Not enough wood to place down this building."
 			break
 	
 
@@ -97,13 +99,13 @@ func place_building(pos):
 			break
 
 	if ResourceManager.resources["wood"] < cost:
-		#print("Not enough wood to place this building.")
+		label.text = "Not enough wood to place down this building."
 		return
 
 	# Proximity check
 	for building in placed_obstacles:
 		if building.distance_to(get_building_position(pos)) < 4 or get_building_position(pos).y > 9:
-			print("Sorry, you can't place it there at", pos)
+			label.text = "You cannot place the building there."
 			return
 			
 	
@@ -116,7 +118,7 @@ func place_building(pos):
 	ResourceManager.resources["wood"] -= cost
 	if selected_building["name"] == "House":
 		ResourceManager.resources["capacity"]+=5
-	
+	label.text = ""
 	
 
 func _physics_process(delta):
@@ -148,7 +150,9 @@ func switch_to_player_camera():
 func open_menu():
 	disable_player_movement()
 	switch_to_map_camera()
+	label.text = ""
 	show()
+	
 func close_menu():
 	enable_player_movement()
 	switch_to_player_camera()
@@ -156,7 +160,10 @@ func close_menu():
 	hide()
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_menu"):
-		open_menu()
+		if visible:
+			close_menu()
+		else:
+			open_menu()
 	if event.is_action_pressed("escape"):
 		close_menu()
 		
