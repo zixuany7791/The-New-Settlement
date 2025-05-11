@@ -23,9 +23,7 @@ shape = SubResource("CircleShape2D_6m76p")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Lumber_menu" parent="CanvasLayer" instance=ExtResource("4_evvmc")]
-offset_left = -200.0
 offset_top = -188.0
-offset_right = 200.0
 offset_bottom = 212.0
 
 [node name="LumberYard" type="Sprite2D" parent="."]

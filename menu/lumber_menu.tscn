@@ -8,12 +8,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -152.0
-offset_top = -84.0
-offset_right = 152.0
-offset_bottom = 116.0
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("1_peatv")
 
 [node name="exit" type="Button" parent="."]
@@ -60,7 +61,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -152.0
 offset_right = 152.0
-offset_bottom = 64.0
+offset_bottom = 139.0
 grow_horizontal = 2
 alignment = 1
 
@@ -83,6 +84,14 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Production Rate: 0 / s
 "
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

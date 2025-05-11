@@ -9,6 +9,7 @@ extends Control
 @onready var interact_label = $"../../../Node2D/TileMapLayer/trunk/CharacterBody2D/Interaction Component/InteractLabel"
 @onready var player = $"../../../Node2D/TileMapLayer/trunk/CharacterBody2D"
 @onready var delete_button = $"MarginContainer/Delete"
+@onready var error_label = $"VBoxContainer/MarginContainer3/Label"
 var assigned_workers := 0
 var max_workers := 5
 var wood_per_worker := 1
@@ -21,14 +22,18 @@ func _ready():
 	delete_button.pressed.connect(delete_pressed)
 
 func assign_worker():
-	if assigned_workers < max_workers and ResourceManager.resources["unemployed"] > 0:
-		assigned_workers += 1
-		ResourceManager.resources["unemployed"] -= 1
-		ResourceManager.add_production("wood", wood_per_worker)
-		population_label.text = "Workforce Population: "  + str(assigned_workers) + "/" + str(max_workers)
-		production_label.text = "Production rate: " + str(assigned_workers)+"/" + "s"
+	if ResourceManager.resources["unemployed"] > 0:
+		if assigned_workers < max_workers:
+			assigned_workers += 1
+			ResourceManager.resources["unemployed"] -= 1
+			ResourceManager.add_production("wood", wood_per_worker)
+			population_label.text = "Workforce Population: "  + str(assigned_workers) + "/" + str(max_workers)
+			production_label.text = "Production rate: " + str(assigned_workers)+"/" + "s"
+			error_label.text = ""
+		else:
+			error_label.text = "Maximum worker capacity reached."
 	else:
-		print("No available population or max workers reached")
+		error_label.text = "There are no more available workers."
 
 func remove_worker():
 	if assigned_workers > 0:
@@ -37,8 +42,9 @@ func remove_worker():
 		ResourceManager.add_production("wood", -(wood_per_worker))
 		population_label.text = "Workforce Population: "  + str(assigned_workers) + "/" + str(max_workers)
 		production_label.text = "Production rate: " + str(assigned_workers)+"/" + "s"
+		error_label.text = ""
 	else:
-		print("No more workers")
+		error_label.text = "There are no more workers left."
 
 func disable_player_movement():
 	player.set_interacting_state(true)
@@ -48,6 +54,7 @@ func enable_player_movement():
 func exit_pressed():
 	interact_label.show()
 	enable_player_movement()
+
 	hide()
 
 func delete_pressed():
