@@ -65,3 +65,13 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Remove Building"
+
+[node name="close" type="Button" parent="CanvasLayer/house_menu"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 36.0
+grow_horizontal = 0
+text = "x"

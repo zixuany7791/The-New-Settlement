@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bur1saajwv4cq" path="res://Tiles/Cliff_Tile-Photoroom.png" id="11_6l5qt"]
 [ext_resource type="PackedScene" uid="uid://bj0t1pbo1xgc4" path="res://menu/building_menu.tscn" id="12_xgonp"]
 [ext_resource type="Texture2D" uid="uid://dr1jwmvpxji7r" path="res://Tiles/4_Seasons_Trees.png" id="12_yvvtp"]
-[ext_resource type="PackedScene" uid="uid://du5s0jyotvc3b" path="res://Buildings/area_2d.tscn" id="14_uhjui"]
+[ext_resource type="PackedScene" path="res://Buildings/area_2d.tscn" id="14_uhjui"]
 [ext_resource type="Script" path="res://Buildings/area_2d.gd" id="15_f1ljh"]
 [ext_resource type="PackedScene" uid="uid://31m8oxv4yxxu" path="res://Resources_Management/resourceUI.tscn" id="15_rm724"]
 [ext_resource type="Texture2D" uid="uid://cl0iscsd1vu3m" path="res://Buildings/Boat-1.png.png" id="16_jwr4q"]
@@ -471,7 +471,6 @@ scale = Vector2(0.332292, 0.3375)
 texture = ExtResource("16_jwr4q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 shape = SubResource("CircleShape2D_tq0ln")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Area2D"]
@@ -504,3 +503,14 @@ offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Sell Wood (50)"
+
+[node name="close" type="Button" parent="Area2D/CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -32.0
+offset_bottom = 36.0
+grow_horizontal = 0
+text = "x"
+icon_alignment = 1
