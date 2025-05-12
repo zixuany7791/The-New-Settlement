@@ -1,16 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://31m8oxv4yxxu"]
+[gd_scene load_steps=6 format=3 uid="uid://31m8oxv4yxxu"]
 
 [ext_resource type="Script" path="res://resource_menu.gd" id="1_rwem2"]
 [ext_resource type="Texture2D" uid="uid://bv48h74x6d4es" path="res://Resources_Management/Population_Icon.png" id="1_v2yud"]
 [ext_resource type="Texture2D" uid="uid://sees53skenjk" path="res://Resources_Management/Wood_Icon.png" id="2_wb8ne"]
+[ext_resource type="Texture2D" uid="uid://bxbm1r0oiemxs" path="res://Buildings/house/construction-1.png.png" id="3_hvf2f"]
+[ext_resource type="Texture2D" uid="uid://bdk6lb5rugki4" path="res://Buildings/house/Worker-1.png.png" id="5_grbof"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchor_left = 0.222222
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.000259399
-offset_right = 0.000244141
+offset_left = -0.999741
+offset_top = 7.0
+offset_right = -0.999756
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rwem2")
@@ -49,10 +53,10 @@ text = "1231"
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.357143
-anchor_top = 1.0
-anchor_right = 0.357143
-anchor_bottom = 1.0
+anchor_left = 0.180804
+anchor_top = 0.947531
+anchor_right = 0.340402
+anchor_bottom = 0.975309
 offset_left = -24.0
 offset_top = -48.0
 offset_right = 28.0
@@ -60,8 +64,18 @@ grow_horizontal = 2
 grow_vertical = 0
 tooltip_text = "Construction(x)"
 text = "Construction"
+alignment = 2
 icon_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 3.0
+offset_right = 76.0
+offset_bottom = 64.0
+texture = ExtResource("3_hvf2f")
+expand_mode = 1
 
 [node name="Worker" type="Panel" parent="."]
 layout_mode = 1
@@ -80,7 +94,7 @@ offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="Worker/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("1_v2yud")
+texture = ExtResource("5_grbof")
 expand_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="Worker"]
@@ -105,11 +119,6 @@ offset_bottom = 40.0
 grow_horizontal = 0
 scale = Vector2(0.978514, 0.96)
 
-[node name="MarginContainer" type="MarginContainer" parent="Population"]
-layout_mode = 0
-offset_right = 41.0
-offset_bottom = 40.0
-
 [node name="MarginContainer2" type="MarginContainer" parent="Population"]
 layout_mode = 1
 anchors_preset = -1
@@ -123,3 +132,10 @@ offset_bottom = 40.0
 layout_mode = 2
 text = "123"
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Population"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_v2yud")
+expand_mode = 1
