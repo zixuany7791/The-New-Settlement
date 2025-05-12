@@ -38,10 +38,12 @@ func _sort_by_nearest(area1, area2):
 
 # When the player enters an interactable area, the object gets added into the array
 func _on_interaction_area_area_entered(area: Area2D) -> void:
+	print(current_interactions)
 	current_interactions.push_back(area)
 	if current_interactions[0].is_interactable: 
 			interact_label.text  = "Press e to enter"
 			interact_label.show()
+			
 	
 
 # When the player leaves an interactable area, the object gets deleted into the array

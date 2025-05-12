@@ -9,3 +9,5 @@ func interact():
 	
 func close_menu():
 	menu.hide()
+	
+	

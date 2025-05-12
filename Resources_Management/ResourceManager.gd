@@ -5,12 +5,14 @@ var resources = {
 	"unemployed": 6,
 	"capacity": 6,
 	"population": 20,
+	"currency": 0,
 }
 
 var production_rates = {
 	"wood": 0,
 	"unemployed": 0,
 	"population": 0,
+	"currency": 0,
 }
 
 var production_interval := 1.0

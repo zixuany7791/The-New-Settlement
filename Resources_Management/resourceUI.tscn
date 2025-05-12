@@ -9,8 +9,9 @@
 [node name="Control" type="Control"]
 layout_mode = 3
 anchor_left = 0.222222
+anchor_top = -0.00925926
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.989198
 offset_left = -0.999741
 offset_top = 7.0
 offset_right = -0.999756
@@ -20,20 +21,45 @@ grow_vertical = 2
 script = ExtResource("1_rwem2")
 metadata/_edit_use_anchors_ = true
 
+[node name="Currency" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 243.0
+offset_right = 393.0
+offset_bottom = 50.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="Currency"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Currency/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Currency
+"
+
 [node name="Wood" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -512.0
-offset_right = -384.0
-offset_bottom = 40.0
+offset_left = -457.0
+offset_right = -307.0
+offset_bottom = 50.0
 grow_horizontal = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Wood"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 50.0
+offset_bottom = 50.0
 
 [node name="TextureRect" type="TextureRect" parent="Wood/MarginContainer"]
 layout_mode = 2
@@ -41,34 +67,41 @@ texture = ExtResource("2_wb8ne")
 expand_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="Wood"]
-layout_mode = 0
-offset_left = 40.0
-offset_right = 128.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="Wood/MarginContainer2"]
 layout_mode = 2
+size_flags_horizontal = 0
 text = "1231"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.180804
-anchor_top = 0.947531
-anchor_right = 0.340402
-anchor_bottom = 0.975309
-offset_left = -24.0
-offset_top = -48.0
-offset_right = 28.0
-grow_horizontal = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -168.0
+grow_horizontal = 0
 grow_vertical = 0
 tooltip_text = "Construction(x)"
-text = "Construction"
-alignment = 2
+icon = ExtResource("3_hvf2f")
+alignment = 0
 icon_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Button"]
+visible = false
 layout_mode = 0
 offset_left = 14.0
 offset_top = 3.0
@@ -82,29 +115,37 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -320.0
-offset_right = -192.0
-offset_bottom = 40.0
+offset_left = -302.0
+offset_right = -152.0
+offset_bottom = 50.0
 grow_horizontal = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Worker"]
 layout_mode = 2
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 50.0
+offset_bottom = 50.0
 
 [node name="TextureRect" type="TextureRect" parent="Worker/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("5_grbof")
-expand_mode = 2
+expand_mode = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="Worker"]
-layout_mode = 2
-offset_left = 40.0
-offset_right = 128.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="Worker/MarginContainer2"]
 layout_mode = 2
+size_flags_horizontal = 0
 text = "1231"
 vertical_alignment = 1
 
@@ -113,29 +154,34 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -128.0
-offset_right = 3.0
-offset_bottom = 40.0
+offset_left = -148.0
+offset_right = 2.0
+offset_bottom = 52.0
 grow_horizontal = 0
 scale = Vector2(0.978514, 0.96)
 
 [node name="MarginContainer2" type="MarginContainer" parent="Population"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.3
-anchor_right = 0.3
-offset_left = -0.300003
-offset_right = 91.7
-offset_bottom = 40.0
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="Population/MarginContainer2"]
 layout_mode = 2
+size_flags_horizontal = 0
 text = "123"
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Population"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 50.0
+offset_bottom = 50.0
 texture = ExtResource("1_v2yud")
 expand_mode = 1

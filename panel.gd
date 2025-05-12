@@ -1,20 +1,20 @@
 extends Panel
 
-#@onready var delete_button = $""
-@onready var interact_label = $"../../TileMapLayer/trunk/CharacterBody2D/Interaction Component/InteractLabel"
-@onready var player = $"../../TileMapLayer/trunk/CharacterBody2D"
+@onready var sell_button = $Sell
+@onready var interact_label = $"../../../TileMapLayer/trunk/CharacterBody2D/Interaction Component/InteractLabel"
+@onready var player = $"../../../TileMapLayer/trunk/CharacterBody2D"
 
 func _ready():
 	hide()
+	sell_button.pressed.connect(sell_wood)
 
 func disable_player_movement():
 	player.set_interacting_state(true)
 func enable_player_movement():
 	player.set_interacting_state(false)
-func delete_pressed():
-	ResourceManager.resources["capacity"] -= 5
-	if get_node("../../../Node2D/TileMapLayer/Popupmenu").placed_obstacles.has(get_node("../../../Node2D/TileMapLayer/Popupmenu").get_building_position(get_node("../..").position)):
-		get_node("../../../Node2D/TileMapLayer/Popupmenu").placed_obstacles.erase(get_node("../../../Node2D/TileMapLayer/Popupmenu").get_building_position(get_node("../..").position))
-	interact_label.show()
-	enable_player_movement()
-	get_node("../../").queue_free()
+func sell_wood():
+	if ResourceManager.resources["wood"] >= 50:
+		ResourceManager.resources["currency"] += 10
+		ResourceManager.resources["wood"] -= 50
+	else:
+		print("yes")
