@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://31m8oxv4yxxu"]
+[gd_scene load_steps=7 format=3 uid="uid://31m8oxv4yxxu"]
 
 [ext_resource type="Script" path="res://resource_menu.gd" id="1_rwem2"]
 [ext_resource type="Texture2D" uid="uid://bv48h74x6d4es" path="res://Resources_Management/Population_Icon.png" id="1_v2yud"]
+[ext_resource type="Texture2D" uid="uid://d27wuxhx6mufd" path="res://Resources_Management/Currency-1.png.png" id="2_j6q4g"]
 [ext_resource type="Texture2D" uid="uid://sees53skenjk" path="res://Resources_Management/Wood_Icon.png" id="2_wb8ne"]
 [ext_resource type="Texture2D" uid="uid://bxbm1r0oiemxs" path="res://Buildings/house/construction-1.png.png" id="3_hvf2f"]
 [ext_resource type="Texture2D" uid="uid://bdk6lb5rugki4" path="res://Buildings/house/Worker-1.png.png" id="5_grbof"]
@@ -22,10 +23,30 @@ script = ExtResource("1_rwem2")
 metadata/_edit_use_anchors_ = true
 
 [node name="Currency" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 243.0
-offset_right = 393.0
-offset_bottom = 50.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -612.0
+offset_top = -1.0
+offset_right = -462.0
+offset_bottom = 49.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Currency"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -25.0
+offset_right = 50.0
+offset_bottom = 25.0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Currency/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_j6q4g")
+expand_mode = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="Currency"]
 layout_mode = 1
@@ -99,16 +120,6 @@ tooltip_text = "Construction(x)"
 icon = ExtResource("3_hvf2f")
 alignment = 0
 icon_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="Button"]
-visible = false
-layout_mode = 0
-offset_left = 14.0
-offset_top = 3.0
-offset_right = 76.0
-offset_bottom = 64.0
-texture = ExtResource("3_hvf2f")
-expand_mode = 1
 
 [node name="Worker" type="Panel" parent="."]
 layout_mode = 1

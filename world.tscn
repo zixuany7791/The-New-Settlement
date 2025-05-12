@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://btfxkm37edkdp"]
+[gd_scene load_steps=42 format=4 uid="uid://btfxkm37edkdp"]
 
 [ext_resource type="Texture2D" uid="uid://b5vc4tsyi5dyr" path="res://Tiles/Beach_Tile.png" id="1_emlw3"]
 [ext_resource type="PackedScene" uid="uid://bhglro57ltxjk" path="res://Character/character_body_2d.tscn" id="1_s5q8u"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://du5s0jyotvc3b" path="res://Buildings/area_2d.tscn" id="14_uhjui"]
 [ext_resource type="Script" path="res://Buildings/area_2d.gd" id="15_f1ljh"]
 [ext_resource type="PackedScene" uid="uid://31m8oxv4yxxu" path="res://Resources_Management/resourceUI.tscn" id="15_rm724"]
+[ext_resource type="Texture2D" uid="uid://cl0iscsd1vu3m" path="res://Buildings/Boat-1.png.png" id="16_jwr4q"]
 [ext_resource type="Script" path="res://panel.gd" id="16_o0sy6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8o24v"]
@@ -464,7 +465,13 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("15_f1ljh")
 
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(20.25, 15)
+scale = Vector2(0.332292, 0.3375)
+texture = ExtResource("16_jwr4q")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("CircleShape2D_tq0ln")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Area2D"]
