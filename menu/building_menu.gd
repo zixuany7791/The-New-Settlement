@@ -1,12 +1,12 @@
 extends Control
 class_name BuildingMenu
-# Signal emitted when a building is selected
-signal building_selected(building_scene)
 
-@onready var player_camera = get_node("../trunk/CharacterBody2D/Camera2D")  # Player's camera
-@onready var map_camera = get_node("../MapCamera")  # Map-view camera
-@onready var player = get_node("../trunk/CharacterBody2D/")
+@onready var player_camera = get_node("../../TileMapLayer/trunk/CharacterBody2D/Camera2D")  # Player's camera
+@onready var map_camera = get_node("../../TileMapLayer/MapCamera")  # Map-view camera
+@onready var player = get_node("../../TileMapLayer/trunk/CharacterBody2D/")
 @onready var label = $"Control/Panel/Label"
+@onready var house_button = $"Control/Panel/VBoxContainer/house_button"
+@onready var lumberyard_button = $"Control/Panel/VBoxContainer/lumberyard_button"
 # List of available buildings
 var buildings = [
 	{"name": "House", "cost": 10, "scene": preload("res://Buildings/house/house.tscn")},
@@ -26,22 +26,16 @@ var placed_trees = {}
 
 func _ready():
 	# Add buttons for each building in the Popup menu
-
-	var container = $Control/Panel/VBoxContainer
-	for building in buildings:
-		var btn = Button.new()
-		btn.text = building["name"] + " (" +str(building["cost"]) + " wood)"
-		btn.custom_minimum_size = Vector2(200, 100)
-		btn.connect("pressed", Callable(self, "_on_building_selected").bind(building["scene"]))
-		container.add_child(btn)
+	house_button.connect("pressed", Callable(self, "_on_building_selected").bind(buildings[0]))
+	lumberyard_button.connect("pressed", Callable(self, "_on_building_selected").bind(buildings[1]))
 	
 	if map_camera:
 		player_camera.make_current()  # Enable the player's camera
 	# Hide the menu initially
 	
 	var tree_tile_ids = [2]  # tree tile ID 
-	for pos in $"../trunk".get_used_cells(): 
-		var tile_id = $"../trunk".get_cell_source_id(pos)
+	for pos in $"../../TileMapLayer/trunk".get_used_cells(): 
+		var tile_id = $"../../TileMapLayer/trunk".get_cell_source_id(pos)
 		if tile_id in tree_tile_ids:
 			placed_trees[pos] = "trees"
 		
@@ -53,15 +47,13 @@ func _ready():
 func _process(delta):
 	if can_place_building:
 		update_building_preview()
-	
 
 func _on_building_selected(building_scene):
-	for building in buildings:
-		if building["scene"] == building_scene:
-			var cost = building["cost"]
+	
+			var cost = building_scene["cost"]
 			if ResourceManager.resources["wood"] >= cost:
-				selected_building_scene = building_scene
-				selected_building = building
+				selected_building_scene = building_scene["scene"]
+				selected_building = building_scene
 				can_place_building = true
 
 				if is_instance_valid(building_preview):
@@ -75,12 +67,12 @@ func _on_building_selected(building_scene):
 				preview_visible = true
 			else:
 				label.text = "Not enough wood to place down this building."
-			break
 	
 
 func update_building_preview():
 	if building_preview:
-		var mouse_position = get_global_mouse_position()
+		var mouse_position = map_camera.get_screen_transform().affine_inverse()* get_viewport().get_mouse_position()
+		print(mouse_position)
 		building_preview.position = mouse_position
 		building_preview.scale = Vector2(0.33, 0.33)
 	if ResourceManager.resources["wood"] < 10:
@@ -93,12 +85,8 @@ func place_building(pos):
 		return
 
 	# Get cost of the selected building
-	var cost = 0
-	for building in buildings:
-		if building["scene"] == selected_building_scene:
-			cost = building["cost"]
-			break
-
+	var cost = selected_building["cost"]
+	
 	if ResourceManager.resources["wood"] < cost:
 		label.text = "Not enough wood to place down this building."
 		return
@@ -129,7 +117,7 @@ func place_building(pos):
 
 func _physics_process(delta):
 	if can_place_building and Input.is_action_just_pressed("LMC"):
-		var mouse_position = get_global_mouse_position()
+		var mouse_position = map_camera.get_screen_transform().affine_inverse()* get_viewport().get_mouse_position()
 		place_building(mouse_position)
 	
 	# Right click to cancel placement
@@ -178,5 +166,17 @@ func get_building_position(pos: Vector2):
 		$"../../TileMapLayer".to_local(
 			pos))
 
+# Tooltip section
+func _on_house_button_mouse_entered() -> void:
+	Tooltip.AssignText("House", "A warm shelter for 10 people", "Cost: 10 wood")
+	Tooltip.ItemPopup(Rect2i(Vector2i($"Control/Panel/VBoxContainer/house_button".global_position),Vector2i($"Control/Panel/VBoxContainer/house_button".size)))
+func _on_house_button_mouse_exited() -> void:
+	Tooltip.HidePopup()
 
+
+func _on_lumberyard_button_mouse_entered() -> void:
+	Tooltip.AssignText("Lumberyard", "Wood generator", "Cost: 10 wood")
+	Tooltip.ItemPopup(Rect2i(Vector2i($"Control/Panel/VBoxContainer/lumberyard_button".global_position),Vector2i($"Control/Panel/VBoxContainer/lumberyard_button".size)))
 	
+func _on_lumberyard_button_mouse_exited() -> void:
+	Tooltip.HidePopup()

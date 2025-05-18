@@ -4,7 +4,7 @@ var resources = {
 	"wood": 120,
 	"unemployed": 6,
 	"capacity": 6,
-	"population": 20,
+	"population": 6,
 	"currency": 0,
 }
 

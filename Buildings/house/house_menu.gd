@@ -20,8 +20,8 @@ func close_pressed():
 	hide()
 func delete_pressed():
 	ResourceManager.resources["capacity"] -= 5
-	if get_node("../../../Node2D/TileMapLayer/Popupmenu").placed_obstacles.has(get_node("../../../Node2D/TileMapLayer/Popupmenu").get_building_position(get_node("../..").position)):
-		get_node("../../../Node2D/TileMapLayer/Popupmenu").placed_obstacles.erase(get_node("../../../Node2D/TileMapLayer/Popupmenu").get_building_position(get_node("../..").position))
+	if get_node("../../../Node2D/CanvasLayer/Popupmenu").placed_obstacles.has(get_node("../../../Node2D/CanvasLayer/Popupmenu").get_building_position(get_node("../..").position)):
+		get_node("../../../Node2D/CanvasLayer/Popupmenu").placed_obstacles.erase(get_node("../../../Node2D/CanvasLayer/Popupmenu").get_building_position(get_node("../..").position))
 	interact_label.show()
 	enable_player_movement()
 	get_node("../../").queue_free()

@@ -12,11 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://bur1saajwv4cq" path="res://Tiles/Cliff_Tile-Photoroom.png" id="11_6l5qt"]
 [ext_resource type="PackedScene" uid="uid://bj0t1pbo1xgc4" path="res://menu/building_menu.tscn" id="12_xgonp"]
 [ext_resource type="Texture2D" uid="uid://dr1jwmvpxji7r" path="res://Tiles/4_Seasons_Trees.png" id="12_yvvtp"]
-[ext_resource type="PackedScene" path="res://Buildings/area_2d.tscn" id="14_uhjui"]
+[ext_resource type="PackedScene" uid="uid://lyhir1fx370" path="res://Buildings/area_2d.tscn" id="14_uhjui"]
 [ext_resource type="Script" path="res://Buildings/area_2d.gd" id="15_f1ljh"]
 [ext_resource type="PackedScene" uid="uid://31m8oxv4yxxu" path="res://Resources_Management/resourceUI.tscn" id="15_rm724"]
 [ext_resource type="Texture2D" uid="uid://cl0iscsd1vu3m" path="res://Buildings/Boat-1.png.png" id="16_jwr4q"]
-[ext_resource type="Script" path="res://panel.gd" id="16_o0sy6"]
+[ext_resource type="Script" path="res://Buildings/panel.gd" id="16_o0sy6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8o24v"]
 texture = ExtResource("1_emlw3")
@@ -430,14 +430,6 @@ zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="Popupmenu" parent="TileMapLayer" instance=ExtResource("12_xgonp")]
-z_index = 4
-y_sort_enabled = true
-offset_left = -656.0
-offset_top = -400.0
-offset_right = -400.0
-offset_bottom = 400.0
-
 [node name="MapCamera" type="Camera2D" parent="TileMapLayer"]
 zoom = Vector2(0.8, 0.8)
 
@@ -450,7 +442,7 @@ polygon = PackedVector2Array(396, -386, 396, 294, 327, 295, 322, 291, 320, 282, 
 follow_viewport_scale = 0.001
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("15_rm724")]
-anchor_left = 0.313368
+anchor_left = 0.00694422
 anchor_top = 0.0123457
 anchor_right = 1.00347
 anchor_bottom = 1.01543
@@ -458,6 +450,11 @@ offset_left = -7.99974
 offset_top = -9.0
 offset_right = -7.99976
 offset_bottom = -9.0
+
+[node name="Popupmenu" parent="CanvasLayer" instance=ExtResource("12_xgonp")]
+z_index = 4
+y_sort_enabled = true
+anchor_right = 0.222222
 
 [node name="Area2D" parent="." instance=ExtResource("14_uhjui")]
 position = Vector2(3, 231)
@@ -514,3 +511,18 @@ offset_bottom = 36.0
 grow_horizontal = 0
 text = "x"
 icon_alignment = 1
+
+[node name="error" type="Label" parent="Area2D/CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -60.0
+offset_right = 32.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)

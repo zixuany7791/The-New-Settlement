@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://31m8oxv4yxxu"]
 
-[ext_resource type="Script" path="res://resource_menu.gd" id="1_rwem2"]
+[ext_resource type="Script" path="res://menu/resource_menu.gd" id="1_rwem2"]
 [ext_resource type="Texture2D" uid="uid://bv48h74x6d4es" path="res://Resources_Management/Population_Icon.png" id="1_v2yud"]
 [ext_resource type="Texture2D" uid="uid://d27wuxhx6mufd" path="res://Resources_Management/Currency-1.png.png" id="2_j6q4g"]
 [ext_resource type="Texture2D" uid="uid://sees53skenjk" path="res://Resources_Management/Wood_Icon.png" id="2_wb8ne"]
@@ -196,3 +196,12 @@ offset_right = 50.0
 offset_bottom = 50.0
 texture = ExtResource("1_v2yud")
 expand_mode = 1
+
+[connection signal="mouse_entered" from="Currency" to="." method="_on_currency_mouse_entered"]
+[connection signal="mouse_exited" from="Currency" to="." method="_on_currency_mouse_exited"]
+[connection signal="mouse_entered" from="Wood" to="." method="_on_wood_mouse_entered"]
+[connection signal="mouse_exited" from="Wood" to="." method="_on_wood_mouse_exited"]
+[connection signal="mouse_entered" from="Worker" to="." method="_on_worker_mouse_entered"]
+[connection signal="mouse_exited" from="Worker" to="." method="_on_worker_mouse_exited"]
+[connection signal="mouse_entered" from="Population" to="." method="_on_population_mouse_entered"]
+[connection signal="mouse_exited" from="Population" to="." method="_on_population_mouse_exited"]
