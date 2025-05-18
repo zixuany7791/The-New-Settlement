@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckm3wboy6s4en"]
+[gd_scene load_steps=3 format=3 uid="uid://ckm3wboy6s4en"]
 
 [ext_resource type="Script" path="res://tooltip.gd" id="1_dkuwp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57d8a"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.215509, 0.523416, 0.279871, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.386954, 0.577893, 0.13205, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,33 +31,41 @@ script = ExtResource("1_dkuwp")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PopupPanel" type="PopupPanel" parent="CanvasLayer"]
-size = Vector2i(190, 190)
+transparent_bg = true
+size = Vector2i(200, 200)
 visible = true
+transparent = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_57d8a")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PopupPanel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 186.0
-offset_bottom = 186.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PopupPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 11
+theme_override_colors/font_shadow_color = Color(0.211765, 0.478431, 0, 1)
+theme_override_font_sizes/font_size = 12
 text = "Building"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer/PopupPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_shadow_color = Color(0.211765, 0.478431, 0, 1)
+theme_override_font_sizes/font_size = 12
 text = "Description"
 
 [node name="Label3" type="Label" parent="CanvasLayer/PopupPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_shadow_color = Color(0.211765, 0.478431, 0, 1)
+theme_override_font_sizes/font_size = 12
 text = "Cost"

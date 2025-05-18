@@ -6,7 +6,7 @@ func AssignText(title: String, description: String, cost: String):
 	$"CanvasLayer/PopupPanel/VBoxContainer/Label3".text = cost
 	
 func ItemPopup(slot: Rect2i):
-	
+	$"CanvasLayer/PopupPanel".size = Vector2i.ZERO
 	var mouse_pos = get_viewport().get_mouse_position()
 	var correction
 	var padding = 4

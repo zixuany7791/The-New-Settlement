@@ -24,15 +24,15 @@ func on_pressed():
 
 
 func _on_population_mouse_entered() -> void:
+	Tooltip.AssignText("Population", "People that are in this city","This city currently have " + str(ResourceManager.resources["population"]) + " people")
 	Tooltip.ItemPopup(Rect2i(Vector2i($"Population".global_position),Vector2i($"Population".size)))
-	Tooltip.AssignText("Population", "This city currently have " + str(ResourceManager.resources["population"]) + " people", "")
 func _on_population_mouse_exited() -> void:
 	Tooltip.HidePopup()
 
 
 func _on_worker_mouse_entered() -> void:
+	Tooltip.AssignText("Worker", "People that are able to do labor","This city currently have " + str(ResourceManager.resources["unemployed"]) + " workers available out of " + str(ResourceManager.resources["capacity"]) + " workers")
 	Tooltip.ItemPopup(Rect2i(Vector2i($"Worker".global_position),Vector2i($"Worker".size)))
-	Tooltip.AssignText("Worker", "This city currently have " + str(ResourceManager.resources["unemployed"]) + " workers available out of " + str(ResourceManager.resources["capacity"]) + " workers", "")
 
 
 func _on_worker_mouse_exited() -> void:
@@ -40,8 +40,9 @@ func _on_worker_mouse_exited() -> void:
 
 
 func _on_wood_mouse_entered() -> void:
+	Tooltip.AssignText("Wood", "It can be used for buildings","This city currently have " + str(ResourceManager.resources["wood"]) + " wood")
 	Tooltip.ItemPopup(Rect2i(Vector2i($"Wood".global_position),Vector2i($"Wood".size)))
-	Tooltip.AssignText("Wood", "This city currently have " + str(ResourceManager.resources["wood"]) + " wood", "")
+	
 
 
 func _on_wood_mouse_exited() -> void:
@@ -49,8 +50,9 @@ func _on_wood_mouse_exited() -> void:
 
 
 func _on_currency_mouse_entered() -> void:
-	Tooltip.ItemPopup(Rect2i(Vector2i($"Currency".global_position),Vector2i($"Currency".size)))
 	Tooltip.AssignText("Money", "This city currently have " + str(ResourceManager.resources["currency"]) + " money", "")
+	Tooltip.ItemPopup(Rect2i(Vector2i($"Currency".global_position),Vector2i($"Currency".size)))
+	
 
 func _on_currency_mouse_exited() -> void:
 	Tooltip.HidePopup()
