@@ -6,6 +6,7 @@ var resources = {
 	"capacity": 6,
 	"population": 6,
 	"currency": 0,
+	"food": 30
 }
 
 var production_rates = {
@@ -13,6 +14,7 @@ var production_rates = {
 	"unemployed": 0,
 	"population": 0,
 	"currency": 0,
+	"food": 0
 }
 
 var production_interval := 1.0
@@ -32,7 +34,7 @@ func _process(delta):
 	if time_accumulator >= production_interval:
 		produce_resources()
 		time_accumulator = 0
-	if 	ResourceManager.resources["population"] > ResourceManager.resources["capacity"]:
+	if ResourceManager.resources["population"] > ResourceManager.resources["capacity"]:
 		death_timer += delta
 		if death_timer >= homeless_interval: 
 			ResourceManager.resources["population"] -=1

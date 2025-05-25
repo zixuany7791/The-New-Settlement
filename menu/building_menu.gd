@@ -7,10 +7,12 @@ class_name BuildingMenu
 @onready var label = $"Control/Panel/Label"
 @onready var house_button = $"Control/Panel/VBoxContainer/house_button"
 @onready var lumberyard_button = $"Control/Panel/VBoxContainer/lumberyard_button"
+@onready var farm_button = $"Control/Panel/VBoxContainer/farm_button"
 # List of available buildings
 var buildings = [
 	{"name": "House", "cost": 10, "scene": preload("res://Buildings/house/house.tscn")},
 	{"name": "Lumberyard", "cost": 10, "scene": preload("res://Buildings/lumberyard/LumberYard.tscn")},
+	{"name": "Farm", "cost": 10, "scene": preload("res://Buildings/farm/farm.tscn")}
 ]
 var selected_building : Dictionary
 
@@ -28,7 +30,7 @@ func _ready():
 	# Add buttons for each building in the Popup menu
 	house_button.connect("pressed", Callable(self, "_on_building_selected").bind(buildings[0]))
 	lumberyard_button.connect("pressed", Callable(self, "_on_building_selected").bind(buildings[1]))
-	
+	farm_button.connect("pressed",Callable(self, "_on_building_selected").bind(buildings[2]))
 	if map_camera:
 		player_camera.make_current()  # Enable the player's camera
 	# Hide the menu initially
@@ -72,7 +74,6 @@ func _on_building_selected(building_scene):
 func update_building_preview():
 	if building_preview:
 		var mouse_position = map_camera.get_screen_transform().affine_inverse()* get_viewport().get_mouse_position()
-		print(mouse_position)
 		building_preview.position = mouse_position
 		building_preview.scale = Vector2(0.33, 0.33)
 	if ResourceManager.resources["wood"] < 10:
@@ -179,4 +180,13 @@ func _on_lumberyard_button_mouse_entered() -> void:
 	Tooltip.ItemPopup(Rect2i(Vector2i($"Control/Panel/VBoxContainer/lumberyard_button".global_position),Vector2i($"Control/Panel/VBoxContainer/lumberyard_button".size)))
 	
 func _on_lumberyard_button_mouse_exited() -> void:
+	Tooltip.HidePopup()
+
+
+func _on_farm_button_mouse_entered() -> void:
+	Tooltip.AssignText("Farm", "You can grow food here", "Cost: 10 wood")
+	Tooltip.ItemPopup(Rect2i(Vector2i($"Control/Panel/VBoxContainer/lumberyard_button".global_position),Vector2i($"Control/Panel/VBoxContainer/lumberyard_button".size)))
+
+
+func _on_farm_button_mouse_exited() -> void:
 	Tooltip.HidePopup()

@@ -1,0 +1,137 @@
+[gd_scene load_steps=6 format=3 uid="uid://b011l68knp1t6"]
+
+[ext_resource type="Texture2D" uid="uid://db0gvfc4sa6ik" path="res://icon.svg" id="1_5jmm5"]
+[ext_resource type="Script" path="res://farm_interact.gd" id="2_1tif7"]
+[ext_resource type="Script" path="res://Buildings/farm/farm_menu.gd" id="3_a2qkg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1smwj"]
+radius = 72.4431
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qskay"]
+radius = 112.0
+
+[node name="Farm" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1smwj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5jmm5")
+
+[node name="farm_interact" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_1tif7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="farm_interact"]
+shape = SubResource("CircleShape2D_qskay")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="farm_menu" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_a2qkg")
+
+[node name="exit" type="Button" parent="CanvasLayer/farm_menu"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -31.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "X"
+
+[node name="Add" type="Button" parent="CanvasLayer/farm_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -36.0
+offset_right = 54.0
+offset_bottom = -5.0
+text = "Add Worker"
+
+[node name="Remove" type="Button" parent="CanvasLayer/farm_menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = 10.0
+offset_right = 65.0
+offset_bottom = 41.0
+text = "Remove Worker
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/farm_menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_right = 152.0
+offset_bottom = 139.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/farm_menu/VBoxContainer"]
+layout_mode = 2
+
+[node name="population" type="Label" parent="CanvasLayer/farm_menu/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+text = "Workforce Population: 0"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/farm_menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="production" type="Label" parent="CanvasLayer/farm_menu/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Production Rate: 0 / s
+"
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/farm_menu/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/farm_menu/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/farm_menu"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -49.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Delete" type="Button" parent="CanvasLayer/farm_menu/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Remove Building"

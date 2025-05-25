@@ -4,6 +4,7 @@ extends Control
 @onready var Wood_Label: Label = $Wood/MarginContainer2/Label
 @onready var Worker_Label: Label = $Worker/MarginContainer2/Label
 @onready var Currency_Label: Label = $Currency/MarginContainer2/Label
+@onready var Food_Label: Label = $Food/MarginContainer2/Label
 @onready var button = $Button
 @onready var menu = $"../Popupmenu"
 func _ready():
@@ -13,6 +14,7 @@ func _process(delta):
 	Wood_Label.text = str(ResourceManager.resources["wood"])
 	Population_Label.text = str(ResourceManager.resources["population"])+ "/" +str(ResourceManager.resources["capacity"])
 	Currency_Label.text = str(ResourceManager.resources["currency"])
+	Food_Label.text = str(ResourceManager.resources["food"])
 	
 
 func on_pressed():
@@ -31,7 +33,7 @@ func _on_population_mouse_exited() -> void:
 
 
 func _on_worker_mouse_entered() -> void:
-	Tooltip.AssignText("Worker", "People that are able to do labor","This city currently have " + str(ResourceManager.resources["unemployed"]) + " workers available out of " + str(ResourceManager.resources["capacity"]) + " workers")
+	Tooltip.AssignText("Worker", "People that are able to do labor","This city currently have " + str(ResourceManager.resources["unemployed"]) + " workers available out of " + str(ResourceManager.resources["population"]) + " workers")
 	Tooltip.ItemPopup(Rect2i(Vector2i($"Worker".global_position),Vector2i($"Worker".size)))
 
 
@@ -55,4 +57,13 @@ func _on_currency_mouse_entered() -> void:
 	
 
 func _on_currency_mouse_exited() -> void:
+	Tooltip.HidePopup()
+
+
+func _on_food_mouse_entered() -> void:
+	Tooltip.AssignText("Food", "This city currently have " + str(ResourceManager.resources["currency"]) + " food", "")
+	Tooltip.ItemPopup(Rect2i(Vector2i($"Currency".global_position),Vector2i($"Currency".size)))
+
+
+func _on_food_mouse_exited() -> void:
 	Tooltip.HidePopup()

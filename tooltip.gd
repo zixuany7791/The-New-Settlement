@@ -1,5 +1,7 @@
 extends Control
 
+func _ready():
+	hide()
 func AssignText(title: String, description: String, cost: String):
 	$"CanvasLayer/PopupPanel/VBoxContainer/Label".text = title
 	$"CanvasLayer/PopupPanel/VBoxContainer/Label2".text = description

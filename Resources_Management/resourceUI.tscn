@@ -9,7 +9,7 @@
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchor_left = 0.222222
+anchor_left = 0.000867831
 anchor_top = -0.00925926
 anchor_right = 1.0
 anchor_bottom = 0.989198
@@ -197,6 +197,51 @@ offset_bottom = 50.0
 texture = ExtResource("1_v2yud")
 expand_mode = 1
 
+[node name="Food" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -767.0
+offset_top = -1.0
+offset_right = -617.0
+offset_bottom = 49.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Food"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -25.0
+offset_right = 50.0
+offset_bottom = 25.0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Food/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_j6q4g")
+expand_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Food"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Food/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Food
+"
+
 [connection signal="mouse_entered" from="Currency" to="." method="_on_currency_mouse_entered"]
 [connection signal="mouse_exited" from="Currency" to="." method="_on_currency_mouse_exited"]
 [connection signal="mouse_entered" from="Wood" to="." method="_on_wood_mouse_entered"]
@@ -205,3 +250,5 @@ expand_mode = 1
 [connection signal="mouse_exited" from="Worker" to="." method="_on_worker_mouse_exited"]
 [connection signal="mouse_entered" from="Population" to="." method="_on_population_mouse_entered"]
 [connection signal="mouse_exited" from="Population" to="." method="_on_population_mouse_exited"]
+[connection signal="mouse_entered" from="Food" to="." method="_on_food_mouse_entered"]
+[connection signal="mouse_exited" from="Food" to="." method="_on_food_mouse_exited"]

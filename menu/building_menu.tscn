@@ -32,7 +32,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -456.0
+offset_right = -0.00038147
+offset_bottom = -392.0
 grow_horizontal = 2
 grow_vertical = 2
 localize_numeral_system = false
@@ -48,6 +49,11 @@ text = "House"
 layout_mode = 2
 size_flags_vertical = 3
 text = "LumberYard"
+
+[node name="farm_button" type="Button" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Farm"
 
 [node name="Label" type="Label" parent="Control/Panel"]
 layout_mode = 1
@@ -71,3 +77,5 @@ autowrap_mode = 2
 [connection signal="mouse_exited" from="Control/Panel/VBoxContainer/house_button" to="." method="_on_house_button_mouse_exited"]
 [connection signal="mouse_entered" from="Control/Panel/VBoxContainer/lumberyard_button" to="." method="_on_lumberyard_button_mouse_entered"]
 [connection signal="mouse_exited" from="Control/Panel/VBoxContainer/lumberyard_button" to="." method="_on_lumberyard_button_mouse_exited"]
+[connection signal="mouse_entered" from="Control/Panel/VBoxContainer/farm_button" to="." method="_on_farm_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Panel/VBoxContainer/farm_button" to="." method="_on_farm_button_mouse_exited"]
