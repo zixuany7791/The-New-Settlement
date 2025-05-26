@@ -61,8 +61,8 @@ func _on_currency_mouse_exited() -> void:
 
 
 func _on_food_mouse_entered() -> void:
-	Tooltip.AssignText("Food", "This city currently have " + str(ResourceManager.resources["currency"]) + " food", "")
-	Tooltip.ItemPopup(Rect2i(Vector2i($"Currency".global_position),Vector2i($"Currency".size)))
+	Tooltip.AssignText("Food", "This city currently have " + str(ResourceManager.resources["food"]) + " food", "")
+	Tooltip.ItemPopup(Rect2i(Vector2i($"Food".global_position),Vector2i($"Food".size)))
 
 
 func _on_food_mouse_exited() -> void:

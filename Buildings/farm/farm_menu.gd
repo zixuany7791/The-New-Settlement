@@ -10,9 +10,10 @@ extends Control
 @onready var player = $"../../../Node2D/TileMapLayer/trunk/CharacterBody2D"
 @onready var delete_button = $"MarginContainer/Delete"
 @onready var error_label = $"VBoxContainer/MarginContainer3/Label"
+
 var assigned_workers := 0
 var max_workers := 5
-var food_per_worker := 1
+var food_per_worker := 3
 
 func _ready():
 	hide()
@@ -28,7 +29,7 @@ func assign_worker():
 			ResourceManager.resources["unemployed"] -= 1
 			ResourceManager.add_production("food", food_per_worker)
 			population_label.text = "Workforce Population: "  + str(assigned_workers) + "/" + str(max_workers)
-			production_label.text = "Production rate: " + str(assigned_workers)+"/" + "s"
+			production_label.text = "Production rate: " + str(assigned_workers*food_per_worker)+"/" + "s"
 			error_label.text = ""
 		else:
 			error_label.text = "Maximum worker capacity reached."
@@ -41,7 +42,7 @@ func remove_worker():
 		ResourceManager.resources["unemployed"] += 1
 		ResourceManager.add_production("food", -(food_per_worker))
 		population_label.text = "Workforce Population: "  + str(assigned_workers) + "/" + str(max_workers)
-		production_label.text = "Production rate: " + str(assigned_workers)+"/" + "s"
+		production_label.text = "Production rate: " + str(assigned_workers*food_per_worker)+"/" + "s"
 		error_label.text = ""
 	else:
 		error_label.text = "There are no more workers left."

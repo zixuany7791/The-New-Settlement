@@ -185,7 +185,7 @@ func _on_lumberyard_button_mouse_exited() -> void:
 
 func _on_farm_button_mouse_entered() -> void:
 	Tooltip.AssignText("Farm", "You can grow food here", "Cost: 10 wood")
-	Tooltip.ItemPopup(Rect2i(Vector2i($"Control/Panel/VBoxContainer/lumberyard_button".global_position),Vector2i($"Control/Panel/VBoxContainer/lumberyard_button".size)))
+	Tooltip.ItemPopup(Rect2i(Vector2i($"Control/Panel/VBoxContainer/farm_button".global_position),Vector2i($"Control/Panel/VBoxContainer/farm_button".size)))
 
 
 func _on_farm_button_mouse_exited() -> void:

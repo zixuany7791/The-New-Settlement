@@ -28,7 +28,7 @@ func assign_worker():
 			ResourceManager.resources["unemployed"] -= 1
 			ResourceManager.add_production("wood", wood_per_worker)
 			population_label.text = "Workforce Population: "  + str(assigned_workers) + "/" + str(max_workers)
-			production_label.text = "Production rate: " + str(assigned_workers)+"/" + "s"
+			production_label.text = "Production rate: " + str(assigned_workers*wood_per_worker)+"/" + "s"
 			error_label.text = ""
 		else:
 			error_label.text = "Maximum worker capacity reached."
@@ -41,7 +41,7 @@ func remove_worker():
 		ResourceManager.resources["unemployed"] += 1
 		ResourceManager.add_production("wood", -(wood_per_worker))
 		population_label.text = "Workforce Population: "  + str(assigned_workers) + "/" + str(max_workers)
-		production_label.text = "Production rate: " + str(assigned_workers)+"/" + "s"
+		production_label.text = "Production rate: " + str(assigned_workers*wood_per_worker)+"/" + "s"
 		error_label.text = ""
 	else:
 		error_label.text = "There are no more workers left."

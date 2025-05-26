@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b011l68knp1t6"]
 
 [ext_resource type="Texture2D" uid="uid://db0gvfc4sa6ik" path="res://icon.svg" id="1_5jmm5"]
-[ext_resource type="Script" path="res://farm_interact.gd" id="2_1tif7"]
+[ext_resource type="Script" path="res://Buildings/farm/farm_interact.gd" id="2_1tif7"]
 [ext_resource type="Script" path="res://Buildings/farm/farm_menu.gd" id="3_a2qkg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1smwj"]
