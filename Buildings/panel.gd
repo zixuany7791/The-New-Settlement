@@ -10,7 +10,7 @@ func _ready():
 	hide()
 	sellWood_button.pressed.connect(sell_wood)
 	close_button.pressed.connect(close_pressed)
-	
+	buyPeople_button.pressed.connect(buy_people)
 
 func disable_player_movement():
 	player.set_interacting_state(true)
