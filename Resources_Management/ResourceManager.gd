@@ -1,5 +1,5 @@
 extends Node
-
+@onready var buildings = $"../Node2D/CanvasLayer/Popupmenu".placed_obstacles
 var resources = {
 	"wood": 120,
 	"unemployed": 6,
@@ -13,11 +13,12 @@ var production_rates = {
 	"wood": 0,
 	"food": 0
 }
+var workers = []
 
 var wood_interval := 1
 var food_interval := 10
-var food_consume_interval := 24
-var death_interval := 30.0
+var food_consume_interval := 5
+var death_interval := 5
 var death_timer := 0.0
 var float_timer := 0.0
 var int_timer := 0
@@ -35,12 +36,23 @@ func _process(delta):
 		produce_resources(int_timer)
 		float_timer = 0
 	
-		if int_timer % 24 == 0:
-			resources["food"] -= (resources["population"]*2)
+		if int_timer % food_consume_interval == 0:
+			if resources["food"] <= (resources["population"]*2):
+				resources["food"] = 0
+			else:
+				resources["food"] -= (resources["population"]*2)
 	if resources["food"] < resources["population"]*2:
 		death_timer += delta
 		if death_timer >= death_interval:
 			resources["population"]-=1
+			print(workers)
+			var coordinate = workers.pick_random()
+			
+			if !workers.is_empty():
+				workers.remove_at(workers.find(coordinate))
+				for building in buildings:
+					if building == coordinate:
+						buildings.get(coordinate).remove_worker_from_menu()
 			death_timer = 0
 	else: 
 		death_timer = 0

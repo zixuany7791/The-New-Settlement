@@ -11,10 +11,18 @@ extends Control
 @onready var delete_button = $"MarginContainer/Delete"
 @onready var error_label = $"VBoxContainer/MarginContainer3/Label"
 
+@onready var coordinates = $"../../".get_building_position()
+
 var assigned_workers := 0
 var max_workers := 5
 var food_per_worker := 3
 
+func died_assigned_workers():
+	if assigned_workers !=0:
+		assigned_workers -= 1
+		ResourceManager.add_production("food", -(food_per_worker))
+		population_label.text = "Workforce Population: "  + str(assigned_workers) + "/" + str(max_workers)
+		production_label.text = "Production rate: " + str(assigned_workers*food_per_worker)+"/" + "s"
 func _ready():
 	hide()
 	assign_button.pressed.connect(assign_worker)
@@ -31,6 +39,7 @@ func assign_worker():
 			population_label.text = "Workforce Population: "  + str(assigned_workers) + "/" + str(max_workers)
 			production_label.text = "Production rate: " + str(assigned_workers*food_per_worker)+"/" + "s"
 			error_label.text = ""
+			ResourceManager.workers.append(coordinates)
 		else:
 			error_label.text = "Maximum worker capacity reached."
 	else:

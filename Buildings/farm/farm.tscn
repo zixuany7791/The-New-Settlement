@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b011l68knp1t6"]
+[gd_scene load_steps=6 format=3 uid="uid://b011l68knp1t6"]
 
+[ext_resource type="Script" path="res://Buildings/farm/farm.gd" id="1_1pd4r"]
 [ext_resource type="Texture2D" uid="uid://bfoapnuvtohyh" path="res://Buildings/farm/FarmHouse-1.png.png" id="1_3jtha"]
 [ext_resource type="Script" path="res://Buildings/farm/farm_interact.gd" id="2_1tif7"]
 [ext_resource type="Script" path="res://Buildings/farm/farm_menu.gd" id="3_a2qkg"]
@@ -8,6 +9,7 @@
 radius = 112.0
 
 [node name="Farm" type="StaticBody2D"]
+script = ExtResource("1_1pd4r")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-79, -19, -59, -19, -59, -33, -14, -33, -14, -18, 78, -17, 78, 73, -79, 74)

@@ -26,6 +26,8 @@ var preview_visible := false
 var placed_obstacles = {}
 var placed_trees = {}
 
+func get_placed_obstacles():
+	return placed_obstacles
 func _ready():
 	# Add buttons for each building in the Popup menu
 	house_button.connect("pressed", Callable(self, "_on_building_selected").bind(buildings[0]))
@@ -108,6 +110,7 @@ func place_building(pos):
 	var instance = selected_building_scene.instantiate()
 	instance.position = pos
 	instance.scale = Vector2(0.33, 0.33)
+	instance.assign_position(get_building_position(pos))
 	get_parent().get_parent().get_parent().add_child(instance)
 	placed_obstacles[get_building_position(pos)] = instance
 	ResourceManager.resources["wood"] -= cost
