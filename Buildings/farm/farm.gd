@@ -9,5 +9,4 @@ func assign_position(pos):
 func get_building_position():
 	return building_position
 func remove_worker_from_menu():
-	print("farm")
 	menu.died_assigned_workers()

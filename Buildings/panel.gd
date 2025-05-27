@@ -24,9 +24,12 @@ func sell_wood():
 	else:
 		error_label.text = "Not enough wood"
 func buy_people():
-	if ResourceManager.resources["currency"] >= 100:
-		ResourceManager.resources["population"] += 1
-		ResourceManager.resources["currency"] -= 100
+	if ResourceManager.resources["currency"] >= 100: 
+		if ResourceManager.resources["population"] < ResourceManager.resources["capacity"]:
+			ResourceManager.resources["population"] += 1
+			ResourceManager.resources["currency"] -= 100
+		else: 
+			error_label.text = "No space for them to live"
 	else:
 		error_label.text = "Not enough money"
 func close_pressed():

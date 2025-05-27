@@ -172,14 +172,14 @@ func get_building_position(pos: Vector2):
 
 # Tooltip section
 func _on_house_button_mouse_entered() -> void:
-	Tooltip.AssignText("House", "A warm shelter for 10 people", "Cost: 10 wood")
+	Tooltip.AssignText("House", "A warm shelter for 5 people", "Cost: 10 wood")
 	Tooltip.ItemPopup(Rect2i(Vector2i($"Control/Panel/VBoxContainer/house_button".global_position),Vector2i($"Control/Panel/VBoxContainer/house_button".size)))
 func _on_house_button_mouse_exited() -> void:
 	Tooltip.HidePopup()
 
 
 func _on_lumberyard_button_mouse_entered() -> void:
-	Tooltip.AssignText("Lumberyard", "Wood generator", "Cost: 10 wood")
+	Tooltip.AssignText("Lumberyard", "Might be your source of wood...", "Cost: 10 wood")
 	Tooltip.ItemPopup(Rect2i(Vector2i($"Control/Panel/VBoxContainer/lumberyard_button".global_position),Vector2i($"Control/Panel/VBoxContainer/lumberyard_button".size)))
 	
 func _on_lumberyard_button_mouse_exited() -> void:
@@ -187,7 +187,7 @@ func _on_lumberyard_button_mouse_exited() -> void:
 
 
 func _on_farm_button_mouse_entered() -> void:
-	Tooltip.AssignText("Farm", "You can grow food here", "Cost: 10 wood")
+	Tooltip.AssignText("Farm", "Might be your chance of surviving...", "Cost: 10 wood")
 	Tooltip.ItemPopup(Rect2i(Vector2i($"Control/Panel/VBoxContainer/farm_button".global_position),Vector2i($"Control/Panel/VBoxContainer/farm_button".size)))
 
 

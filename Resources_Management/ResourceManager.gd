@@ -17,8 +17,8 @@ var workers = []
 
 var wood_interval := 1
 var food_interval := 10
-var food_consume_interval := 5
-var death_interval := 5
+var food_consume_interval := 24
+var death_interval := 30.0
 var death_timer := 0.0
 var float_timer := 0.0
 var int_timer := 0
@@ -45,7 +45,6 @@ func _process(delta):
 		death_timer += delta
 		if death_timer >= death_interval:
 			resources["population"]-=1
-			print(workers)
 			var coordinate = workers.pick_random()
 			
 			if !workers.is_empty():
