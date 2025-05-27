@@ -1,6 +1,5 @@
 extends Control
 
-
 @onready var population_label = $VBoxContainer/MarginContainer/population
 @onready var production_label = $VBoxContainer/MarginContainer2/production
 @onready var assign_button = $Add
