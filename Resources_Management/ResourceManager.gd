@@ -16,6 +16,9 @@ var production_rates = {
 
 var wood_interval := 1
 var food_interval := 10
+var food_consume_interval := 24
+var death_interval := 30.0
+var death_timer := 0.0
 var float_timer := 0.0
 var int_timer := 0
 
@@ -32,13 +35,15 @@ func _process(delta):
 		produce_resources(int_timer)
 		float_timer = 0
 	
-	#if ResourceManager.resources["population"] > ResourceManager.resources["capacity"]:
-		#death_timer += delta
-		#if death_timer >= homeless_interval: 
-			#ResourceManager.resources["population"] -=1
-			#death_timer = 0
-	#else: 
-		#death_timer = 0
+		if int_timer % 24 == 0:
+			resources["food"] -= (resources["population"]*2)
+	if resources["food"] < resources["population"]*2:
+		death_timer += delta
+		if death_timer >= death_interval:
+			resources["population"]-=1
+			death_timer = 0
+	else: 
+		death_timer = 0
 
 func produce_resources(time):
 	if time % wood_interval == 0:
