@@ -1,22 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://b011l68knp1t6"]
+[gd_scene load_steps=5 format=3 uid="uid://b011l68knp1t6"]
 
-[ext_resource type="Texture2D" uid="uid://db0gvfc4sa6ik" path="res://icon.svg" id="1_5jmm5"]
+[ext_resource type="Texture2D" uid="uid://bfoapnuvtohyh" path="res://Buildings/farm/FarmHouse-1.png.png" id="1_3jtha"]
 [ext_resource type="Script" path="res://Buildings/farm/farm_interact.gd" id="2_1tif7"]
 [ext_resource type="Script" path="res://Buildings/farm/farm_menu.gd" id="3_a2qkg"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1smwj"]
-radius = 72.4431
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qskay"]
 radius = 112.0
 
 [node name="Farm" type="StaticBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_1smwj")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-79, -19, -59, -19, -59, -33, -14, -33, -14, -18, 78, -17, 78, 73, -79, 74)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_5jmm5")
+scale = Vector2(0.523387, 0.514376)
+texture = ExtResource("1_3jtha")
 
 [node name="farm_interact" type="Area2D" parent="."]
 collision_layer = 2
