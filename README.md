@@ -1,16 +1,26 @@
 # The New Settlement
- 
-### Elevator Pitch:
-	
-Brief Example:
-``` 
-Hello, have you ever think about having your own city 
 
-Well, in our project you can experience what its like to have your own city 
+### Description:
 
-*Demonstration*
+You have found a new land after weeks of traveling. Your goal is to survive in this land with your crew and build a thriving city. 
 
-We created this project with godot *Show them the slide* which is a game engine for 2d and 3d game development. Here is how it looks like from godot if you guys want to see it. 
+### Controls:
 
-Do you guys have any questions?
-```
+W - Move Up 
+
+S - Move Down 
+
+A - Move Left
+
+D - Move Right 
+
+E - Interact with structures 
+
+X - Menu for building 
+
+Escape - Exit menu
+
+--- 
+Collaborators by: [Zixuan Yu](https://github.com/zixuany7791), [William Zheng](https://github.com/williamz2198), [Benjamin Chau](https://github.com/benjaminc8190)
+
+[Preview](https://climmygrim.itch.io/the-new-settlement)
